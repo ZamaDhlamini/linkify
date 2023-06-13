@@ -12,6 +12,11 @@
     width: fit-content;
     text-align: center; 
   }
+  .pcontainer{
+    width: 450px;
+    height: 50px;
+    padding-left: 20px;
+  }
 
 .Heading1{
     font-family: 'Titan One', sans-serif;
@@ -37,7 +42,13 @@
 .Paragraph1{
     font-family: 'Roboto Condensed', sans-serif;
 }
+
 .Paragraph2{
     font-family: 'Roboto Condensed', sans-serif;
+}
+
+.button{
+    padding-top: 100px;
+    padding-left: 20px;
 }
 

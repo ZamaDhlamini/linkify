@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');
+
+.container{
+background-repeat: no-repeat;
+  background-size: contain; 
+  background-position: center;
+  position: fixed;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 659px; 
+  width: 490px;
+}
+
+.heading{
+    font-family: 'Titan One', sans-serif;
+    font-size: 30px;
+  background-size: contain; 
+  background-position: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.button{
+    color:white;
+    background-color: #EACF69;
+}

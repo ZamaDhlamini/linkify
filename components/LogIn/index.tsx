@@ -1,5 +1,6 @@
 import { Form, Input, Button } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import styles from './LogIn.module.css';
 
 const LoginForm = () => {
   const onFinish = (values: any) => {
@@ -8,8 +9,10 @@ const LoginForm = () => {
 
   return (
     <div>
-      <h1>Login Form</h1>
-      <Form name="login-form" onFinish={onFinish}>
+        <div className={styles.heading}>
+      <h1>Login</h1>
+        </div>
+      <Form name="login-form" onFinish={onFinish} className={styles.container}>
         <Form.Item
           name="EmailAddress"
           rules={[
@@ -29,7 +32,7 @@ const LoginForm = () => {
           <Input.Password prefix={<LockOutlined />} placeholder="Password" />
         </Form.Item>
         <Form.Item>
-          <Button type="primary" htmlType="submit" block>
+          <Button className={styles.button} htmlType="submit" block>
             Log in
           </Button>
         </Form.Item>
