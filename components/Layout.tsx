@@ -31,6 +31,7 @@
 
 // export default Layout
 import Navbar from "./NavBar";
+import './NavBar/NavBar.module.css';
 
 const Layout: React.FC = ({ children }) => {
   return (

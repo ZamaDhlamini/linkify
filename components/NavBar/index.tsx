@@ -3,7 +3,8 @@ import styles from './Navbar.module.css';
 
 const Navbar: React.FC = () => {
   return (
-    <nav className={styles.navbar}>
+    <div className={styles.navbar}>
+    <nav>
       <ul>
         <li>
           <Link href="/">Home</Link>
@@ -16,6 +17,7 @@ const Navbar: React.FC = () => {
         </li>
       </ul>
     </nav>
+    </div>
   );
 };
 
