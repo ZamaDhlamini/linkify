@@ -37,6 +37,12 @@ const LoginForm = () => {
           </Button>
         </Form.Item>
       </Form>
+      <div className={styles.heading5}>
+      <h5>Forgot password?</h5>
+      </div>
+      <div className={styles.heading6}>
+      <h5>Sign Up</h5>
+      </div>
     </div>
   );
 };
