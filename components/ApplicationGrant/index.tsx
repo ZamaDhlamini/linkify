@@ -1,6 +1,6 @@
 import { Form, Input, Button, Row, Col } from 'antd';
 import { useState } from 'react';
-import styles from './Application.module.css';
+import styles from './ApplicationGrant.module.css';
 import Navbar from '../NavBar';
 
 const GrantForm = () => {

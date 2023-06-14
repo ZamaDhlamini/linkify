@@ -1,6 +1,7 @@
 import { Form, Input, Button } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import styles from './LogIn.module.css';
+import Link from 'next/link';
 
 const LoginForm = () => {
   const onFinish = (values: any) => {
@@ -42,7 +43,9 @@ const LoginForm = () => {
       </Form>
       <div className={styles.heading5}>
       <h5>Forgot password?</h5>
+        <Link href='/SignUp'>
       <h5>Sign Up</h5>
+        </Link>
       </div>
     </div>
   );
