@@ -50,5 +50,23 @@
 .button{
     padding-top: 100px;
     padding-left: 20px;
+    
 }
+
+.image {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -695px; /* Adjust the margin as needed */
+    margin-right: 208px;
+  }
+
+  .buttonContainer{
+    color:white;
+    background-color: #EACF69;
+  }
+  .image img {
+    width: 587px; /* Adjust the width of the image */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
 

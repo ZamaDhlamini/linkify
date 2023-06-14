@@ -1,6 +1,7 @@
 import Layout from "../Layout";
 import styles from "./Home.module.css";
 import Link from "next/link";
+import { Button } from "antd";
 
 const LandingPage = () => {
     return(
@@ -26,8 +27,11 @@ const LandingPage = () => {
             </div>
             <div className={styles.button}>
             <Link href="/Login">
-            <button>Apply for Grant</button>
+            <Button>Apply for Grant</Button>
             </Link>
+            </div>
+            <div className={styles.image}>
+            <img src="/edit_coat_arms.png" alt="South african coat of arms" />
             </div>
         </Layout>
     )

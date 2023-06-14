@@ -9,6 +9,9 @@ const LoginForm = () => {
 
   return (
     <div>
+      <div className={styles.image}>
+            <img src="/linkifylogo.png" alt="Linkify Logo" />
+            </div>
         <div className={styles.heading}>
       <h1>Login</h1>
         </div>
@@ -39,8 +42,6 @@ const LoginForm = () => {
       </Form>
       <div className={styles.heading5}>
       <h5>Forgot password?</h5>
-      </div>
-      <div className={styles.heading6}>
       <h5>Sign Up</h5>
       </div>
     </div>

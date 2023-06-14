@@ -17,29 +17,40 @@ background-repeat: no-repeat;
 .heading{
 
     font-family: 'Titan One', sans-serif;
-    font-size: 30px;
+    font-size: 20px;
   background-size: contain; 
   background-position: center;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  margin-top: -100px;
 }
 
 .button{
     color:white;
-    background-color: #EACF69;
+    background-color: #2F345D;
     position: fixed;
 }
 
 .heading5{
     font-family: 'Roboto Condensed', sans-serif;
-    padding-left: 714px;
-    padding-top: 550px;
+    padding-left: 520px;
+    padding-top: 410px;
 }
 
-.heading6{
-    font-family: 'Roboto Condensed', sans-serif;
-    padding-left: 1143px;
-    padding-top: 50px;
+.heading5 h5 {
+  margin-left: 10px; /* Adjust the margin as needed */
+}
+
+.image{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
+  margin-right: 500px;
+}
+
+.image img{
+  width: 490px;
+  height: auto;
 }
