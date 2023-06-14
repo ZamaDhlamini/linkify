@@ -9,12 +9,13 @@ const SignUpForm = () => {
 
   return (
     <div>
-      <div className={styles.headin1}>
+      <div className={styles.heading1}>
         <h1>Hello, new member!</h1>
       </div>
-      <div className={styles.heading2}>
+      {/* <div className={styles.heading2}>
         <h2>Sign Up</h2>
-      </div>
+      </div> */}
+      <div className={styles.container}>
       <Form name="signup" onFinish={onFinish}>
         <Form.Item
           name="name"
@@ -60,6 +61,18 @@ const SignUpForm = () => {
           </Button>
         </Form.Item>
       </Form>
+      </div>
+      <div className={styles.image}>
+            <img src="/banner.png" alt="Banner box" />
+            </div>
+            <div className={styles.imageLogo}>
+            <img src="/coatofarms.png" alt="Banner box" />
+            </div>
+            <div className={styles.paragraph1}>
+              <div className={styles.scrollText}>
+            <p>The Republic of South Africa is a parliamentary republic with a three-tier system of government and an independent judiciary, operating in a parliamentary system.</p>
+              </div>
+            </div>
     </div>
   );
 };

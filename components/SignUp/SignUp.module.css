@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
+.container{
+background-repeat: no-repeat;
+  background-size: contain; 
+  background-position: center;
+  position: fixed;
+  top: 90%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  height: 659px; 
+  width: 490px;
+  position: fixed;
+}
+
+.heading1{
+    font-family: 'Roboto Condensed', sans-serif;
+    margin-left: 155px;
+    margin-top: 150px;
+    font-size: 20px;
+}
+
+.heading2{
+    font-family: 'Roboto Condensed', sans-serif;
+    margin-left: 155px;
+}
+
+.image{
+   margin-left: -100px;
+   margin-top: -256px;
+}
+
+.imageLogo{
+    margin-left: 1141px;
+    margin-top: -896px;
+}
+
+.paragraph1{
+    font-family: 'Roboto Condensed', sans-serif;
+    width: 400px;
+    margin-left: 1051px;
+    color: white;
+}
+
+/* Remove the .scrollText class selector */
+@keyframes my-animation {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+  /* Define the class name for your module.css file */
+  .scrollText {
+    /* animation properties */
+    transform: translateX(100%);
+  
+    /* Use the keyframe animation defined above */
+    animation: my-animation 15s linear infinite;
+  }
+  
