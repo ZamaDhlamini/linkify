@@ -2,11 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 
 .container{
+    font-family: 'Roboto Condensed', sans-serif;
 background-repeat: no-repeat;
   background-size: contain; 
   background-position: center;
   position: fixed;
-  top: 90%;
+  top: 80%;
   left: 20%;
   transform: translate(-50%, -50%);
   height: 659px; 
@@ -15,6 +16,7 @@ background-repeat: no-repeat;
 }
 
 .heading1{
+    
     font-family: 'Roboto Condensed', sans-serif;
     margin-left: 155px;
     margin-top: 150px;
@@ -60,5 +62,10 @@ background-repeat: no-repeat;
   
     /* Use the keyframe animation defined above */
     animation: my-animation 15s linear infinite;
+  }
+
+  .button{
+    color:#2F345D;
+    
   }
   
