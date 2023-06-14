@@ -37,7 +37,7 @@ const UploadPage = () => {
         <Upload
           key={index}
           name={`file${index}`}
-          action="/api/upload" // Replace with your upload endpoint
+          action="/api/upload" // Replace with your upload endpoint/ use your backend api to plugin the specific point of uploading
           fileList={fileList[index] ? [fileList[index]] : []} // Show uploaded file, if any
           onChange={(info) => handleChange(info, index)}
           multiple={false}
