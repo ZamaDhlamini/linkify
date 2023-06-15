@@ -21,7 +21,7 @@ import {useLoadScript,GoogleMap,MarkerF,CircleF,} from '@react-google-maps/api';
     );
   
     const { isLoaded } = useLoadScript({
-      googleMapsApiKey: process.env.AIzaSyBD7HRBJSD6YGPd4SLGX0oMPQpQBImVThA as string,
+      googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY as string,
       libraries: libraries as any,
     });
   
@@ -124,7 +124,7 @@ import {useLoadScript,GoogleMap,MarkerF,CircleF,} from '@react-google-maps/api';
           className={styles.autocompleteInput}
           disabled={!ready}
           onChange={(e) => setValue(e.target.value)}
-          placeholder="123 Stariway To Heaven"
+          placeholder="SASSA Branch"
         />
   
         {status === 'OK' && (

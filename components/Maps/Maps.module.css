@@ -5,7 +5,7 @@
   }
   
   .sidebar {
-    margin-right: 16px;
+    margin-right: 24px;
     width: 20%;
     height: 100vh;
     background-color: #333;
@@ -19,7 +19,7 @@
   .autocompleteInput {
     width: 96%;
     margin: 84px auto 0 auto;
-    padding: 16px;
+    padding: 5px;
     display: block;
     border: 1px solid yellow;
   }
