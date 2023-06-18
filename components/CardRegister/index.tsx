@@ -1,22 +1,23 @@
 import { useState } from 'react';
 import { Form, Input, Row, Col, Image } from 'antd';
+import styles from './CardRegister.module.css';
 
-const LinkCardPage = () => {
+const LinkCard = () => {
   const [cardData, setCardData] = useState({ name: '', cardNumber: '', month: '', year: '' });
 
-  const handleInputChange = (fieldName: string, value: string) => {
+  const handleInputChange = (fieldName, value) => {
     setCardData((prevData) => ({ ...prevData, [fieldName]: value }));
   };
 
   return (
     <div>
-      <h1>Link a Card</h1>
+      <div className={styles.Heading}>
+        <h1>Register Sassa Card</h1>
+      </div>
+      <div className={styles.Form}>
       <Form layout="vertical">
         <Form.Item label="Name on Card">
-          <Input
-            value={cardData.name}
-            onChange={(e) => handleInputChange('name', e.target.value)}
-          />
+          <Input value={cardData.name} onChange={(e) => handleInputChange('name', e.target.value)} />
         </Form.Item>
         <Form.Item label="Card Number">
           <Input
@@ -43,11 +44,16 @@ const LinkCardPage = () => {
           </Col>
         </Row>
       </Form>
-      <Image
-        src={`https://dummyimage.com/200x100/000/fff&text=${cardData.name}+${cardData.cardNumber}+${cardData.month}/${cardData.year}`}
-      />
+      </div>
+      <div className={styles.cardImage}>
+        <div className={styles.cardNumber}>{cardData.cardNumber}</div>
+        <div className={styles.cardName}>{cardData.name}</div>
+        <div className={styles.cardExpiry}>
+          {cardData.month}/{cardData.year}
+        </div>
+      </div>
     </div>
   );
 };
 
-export default LinkCardPage;
+export default LinkCard;

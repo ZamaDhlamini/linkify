@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
+.Heading{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.cardImage {
+    width: 302px;
+    height: 165px;
+    background-color: #363636;
+    background-image: linear-gradient(45deg, #f1f1f1 25%, transparent 25%),
+      linear-gradient(-45deg, #f1f1f1 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #f1f1f1 75%),
+      linear-gradient(-45deg, transparent 75%, #f1f1f1 75%);
+    background-size: 8px 8px;
+    background-position: 0 0, 4px 0, 4px -4px, 0px 4px;
+    border-radius: 4px;
+    padding: 16px;
+    margin-bottom: 16px;
+    margin-left: 1111px;
+    margin-top: -219px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: #fff;
+    font-family: Arial, sans-serif;
+  }
+  
+  .cardNumber {
+    font-size: 30px;
+    margin-bottom: 16px;
+  }
+  
+  .cardName {
+    font-size: 16px;
+  }
+  
+  .cardExpiry {
+    font-size: 14px;
+  }
+
+  .Form{
+    width: 800px;
+    height: auto;
+  }
+  
