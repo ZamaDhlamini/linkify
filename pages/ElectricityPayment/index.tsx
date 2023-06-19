@@ -1,8 +1,8 @@
-import PaymentForm from "../../components/Payment";
+import PaymentPage from "../../components/Payment";
 
 const ElectricityPayment = () => {
     return(
-      <PaymentForm/>
+      <PaymentPage/>
     )
 }
 
