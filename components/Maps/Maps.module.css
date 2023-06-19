@@ -26,7 +26,7 @@
     border: 1px solid yellow;
   }
   
-  .suggestionWrapper {
+  /* .suggestionWrapper {
     margin: 0;
     width: 96%;
     overflow-x: hidden;
@@ -34,14 +34,14 @@
     margin: 0 auto;
     display: block;
     padding: 4px;
-  }
+  } */
   
-  .suggestionWrapper > li {
+  /* .suggestionWrapper > li {
     padding: 8px 4px;
     background-color: lightcoral;
     margin: 4px 0;
     cursor: pointer;
-  }
+  } */
 
   .heading1{
     font-family: 'Roboto Condensed', sans-serif;

@@ -5,11 +5,39 @@ import {useLoadScript,GoogleMap,MarkerF,CircleF,} from '@react-google-maps/api';
   import styles from './Maps.module.css';
   
   const Maps: NextPage = () => {
-    const [lat, setLat] = useState(27.672932021393862);
-    const [lng, setLng] = useState(85.31184012689732);
+    const [lat, setLat] = useState(-25.9958835);
+    const [lng, setLng] = useState(27.976703);
+
   
     const libraries = useMemo(() => ['places'], []);
     const mapCenter = useMemo(() => ({ lat: lat, lng: lng }), [lat, lng]);
+
+    const [place, setPlaces] = useState<Place[]>([
+      {
+        name: "Sassa Branch 1",
+        address: "Old Pretoria Road &, Church St, Grand Central, Midrand, 1685",
+        longitude: 28.128175801796655,
+        latitude: -25.993231336658457,
+      },
+      {
+        name: "Sassa Branch 2",
+        address: "Old Pretoria Road &, Church St, Grand Central, Midrand, 1685",
+        longitude: 28.128175801796655,
+        latitude: -25.993231336658454,
+      },
+      {
+        name: "Sassa Branch 3",
+        address: "Old Pretoria Road &, Church St, Grand Central, Midrand, 1685",
+        longitude: 28.128175801796655,
+        latitude: -25.993231336658453,
+      },
+      {
+        name: "Sassa Branch 4",
+        address: "Old Pretoria Road &, Church St, Grand Central, Midrand, 1685",
+        longitude: 28.128175801796655,
+        latitude: -25.993231336658452,
+      },
+    ])
   
     const mapOptions = useMemo<google.maps.MapOptions>(
       () => ({
@@ -50,15 +78,20 @@ import {useLoadScript,GoogleMap,MarkerF,CircleF,} from '@react-google-maps/api';
           zoom={14}
           center={mapCenter}
           mapTypeId={google.maps.MapTypeId.ROADMAP}
-          mapContainerStyle={{ width: '800px', height: '800px' }}
+          mapContainerStyle={{ width: '3000px', height: '700px' }}
           onLoad={(map) => console.log('Map Loaded')}
         >
           <MarkerF
-            position={mapCenter}
-            onLoad={() => console.log('Marker Loaded')}
-          />
+  position={{ lat: -25.9958835, lng: 27.976703 }}
+  onLoad={() => console.log('Marker Loaded')}
+  onClick={() => {
+    place === selectedPlace
+    ? setSelectedPlace(undefined)
+    : setSelectedPlace(place);
+  }}
+/>
   
-          {[1000, 2500].map((radius, idx) => {
+          {/* {[1000, 2500].map((radius, idx) => {
             return (
               <CircleF
                 key={idx}
@@ -72,7 +105,7 @@ import {useLoadScript,GoogleMap,MarkerF,CircleF,} from '@react-google-maps/api';
                 }}
               />
             );
-          })}
+          })} */}
         </GoogleMap>
       </div>
     );
