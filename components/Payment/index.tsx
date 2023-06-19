@@ -26,16 +26,16 @@ const PaymentPage = (): JSX.Element => {
 	}, [success, canceled]);
 
 	return (
-		<form action='/api/checkout_sessions' method='POST'>
+		<form action='/api/users' method='POST'>
 			<section>
 				<div>
-					<Image
+					{/* <Image
 						className='image'
 						src='{{IMAGE_URL}}'
 						alt='Electricity'
 						width={150}
 						height={150}
-					/>
+					/> */}
 					<div className='description'>
 						<h3 className='heading'>Home Electricity</h3>
 						<h5 className='price'>R200</h5>
