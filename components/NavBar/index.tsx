@@ -17,6 +17,13 @@ const Navbar: React.FC = () => {
           </li>
         </ul>
       </nav>
+      {/* <div className={styles.profile}>
+        <img
+          src="/profile_image.png"
+          alt="Profile Image"
+          className={styles.profileImage}
+        />
+      </div> */}
     </div>
   );
 };
