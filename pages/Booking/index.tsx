@@ -1,8 +1,9 @@
 import Booking from "../../components/Booking";
+import Navbar from "../../components/NavBar";
 
 const BookingPage = () => {
     return(
-       <Booking/>
+       <><Navbar /><Booking /></>
     )
 }
 
