@@ -11,6 +11,9 @@ const LinkCard = () => {
 
   return (
     <div>
+        <div className={styles.paragraph1}>
+        <p className={styles.scrollingText}>Your credit card number is a 15- or 16-digit number that is usually embossed or printed on the front of your credit card toward the bottom, though it’s becoming increasingly common for credit card issuers to print the card number on the back.</p>
+        </div>
       <div className={styles.Heading}>
         <h1>Register Sassa Card</h1>
       </div>

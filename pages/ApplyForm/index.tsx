@@ -1,8 +1,9 @@
 import GrantForm from "../../components/ApplicationGrant";
 
+
 const ApplicationForm = () =>{
     return(
-        <GrantForm/>
+         <GrantForm/>
     )
 }
 

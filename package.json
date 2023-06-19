@@ -8,12 +8,14 @@
   },
   "dependencies": {
     "@react-google-maps/api": "^2.18.1",
+    "@stripe/stripe-js": "^1.54.0",
     "antd": "^5.6.1",
     "next": "latest",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "redux-actions": "^3.0.0",
     "restful-react": "^15.9.4",
+    "stripe": "^12.9.0",
     "use-places-autocomplete": "^4.0.0"
   },
   "devDependencies": {

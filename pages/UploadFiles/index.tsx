@@ -1,8 +1,9 @@
 import UploadPage from "../../components/Upload";
+import Navbar from "../../components/NavBar";
 
 const Uploading = () => {
     return(
-      <UploadPage/>
+      <><Navbar /><UploadPage /></>
     )
 }
 

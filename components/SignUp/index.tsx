@@ -1,6 +1,7 @@
 import { Form, Input, Button } from 'antd';
 import { UserOutlined, MailOutlined, LockOutlined, SolutionOutlined } from '@ant-design/icons';
 import styles from './SignUp.module.css';
+import Link from 'next/link';
 
 const SignUpForm = () => {
   const onFinish = (values: any) => {
@@ -62,9 +63,11 @@ const SignUpForm = () => {
           </Form.Item>
           <Form.Item>
             <div className={styles.button}>
+              <Link href='/ApplyForm'>
             <Button type="primary" htmlType="submit">
               Sign Up
             </Button>
+              </Link>
             </div>
           </Form.Item>
         </Form>

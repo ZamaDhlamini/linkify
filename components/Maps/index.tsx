@@ -31,6 +31,7 @@ import {useLoadScript,GoogleMap,MarkerF,CircleF,} from '@react-google-maps/api';
   
     return (
       <div className={styles.homeWrapper}>
+        <h1 className={styles.heading1}>Find a Sassa Branch</h1>
         <div className={styles.sidebar}>
           {/* render Places Auto Complete and pass custom handler which updates the state */}
           <PlacesAutocomplete

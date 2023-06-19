@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
 .homeWrapper {
     display: flex;
     justify-content: center;
@@ -5,8 +7,8 @@
   }
   
   .sidebar {
-    margin-right: 24px;
-    width: 20%;
+    margin-right: 10px;
+    width: 500px;
     height: 100vh;
     background-color: #333;
   }
@@ -39,4 +41,9 @@
     background-color: lightcoral;
     margin: 4px 0;
     cursor: pointer;
+  }
+
+  .heading1{
+    font-family: 'Roboto Condensed', sans-serif;
+    margin-bottom: 600px;
   }
