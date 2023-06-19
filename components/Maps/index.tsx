@@ -56,6 +56,10 @@ import {useLoadScript,GoogleMap,MarkerF,CircleF,} from '@react-google-maps/api';
     if (!isLoaded) {
       return <p>Loading...</p>;
     }
+
+    interface PlacesAutocompleteProps {
+      onAddressSelect?: (address: string) => void;
+    }
   
     return (
       <div className={styles.homeWrapper}>
@@ -78,7 +82,7 @@ import {useLoadScript,GoogleMap,MarkerF,CircleF,} from '@react-google-maps/api';
           zoom={14}
           center={mapCenter}
           mapTypeId={google.maps.MapTypeId.ROADMAP}
-          mapContainerStyle={{ width: '3000px', height: '700px' }}
+          mapContainerStyle={{ width: '6000px', height: '600px' }}
           onLoad={(map) => console.log('Map Loaded')}
         >
           <MarkerF
