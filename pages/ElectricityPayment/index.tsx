@@ -1,8 +1,9 @@
 import PaymentPage from "../../components/Payment";
+import Navbar from "../../components/NavBar";
 
 const ElectricityPayment = () => {
     return(
-      <PaymentPage/>
+      <><Navbar /><PaymentPage /></>
     )
 }
 
