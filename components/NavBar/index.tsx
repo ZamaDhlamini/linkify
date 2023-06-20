@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import styles from './Navbar.module.css';
 
+
 const Navbar: React.FC = () => {
   return (
     <div className={styles.navbar}>
@@ -13,7 +14,7 @@ const Navbar: React.FC = () => {
             <Link href="/faq">FAQ</Link>
           </li>
           <li>
-            <Link href="/faq">Map</Link>
+            <Link href="/BranchMaps">Map</Link>
           </li>
           <li>
             <Link href="/contact">Contact</Link>

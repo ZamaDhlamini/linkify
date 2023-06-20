@@ -1,4 +1,5 @@
 import Home from "../../components/KnowlegdeBaseHome";
+import Navbar from "../../components/NavBar";
 
 const KnowledgeBasePage = () => {
     const pageData = {
@@ -34,7 +35,7 @@ const KnowledgeBasePage = () => {
       },
     };
   
-    return <Home pageData={pageData} />;
+    return <><Navbar /><Home pageData={pageData} /></>;
   };
   
   export default KnowledgeBasePage;
