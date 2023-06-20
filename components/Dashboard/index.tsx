@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
-import { Card, Col, Row } from 'antd';
+import { Card } from 'antd';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -21,6 +21,43 @@ function getItem(
     type,
   } as MenuItem;
 }
+
+const tabList = [
+    {
+      key: 'tab1',
+      tab: 'tab1',
+    },
+    {
+      key: 'tab2',
+      tab: 'tab2',
+    },
+  ];
+  
+  const contentList: Record<string, React.ReactNode> = {
+    tab1: <p>content1</p>,
+    tab2: <p>content2</p>,
+  };
+  
+  const tabListNoTitle = [
+    {
+      key: 'article',
+      label: 'article',
+    },
+    {
+      key: 'app',
+      label: 'app',
+    },
+    {
+      key: 'project',
+      label: 'project',
+    },
+  ];
+  
+  const contentListNoTitle: Record<string, React.ReactNode> = {
+    article: <p>article content</p>,
+    app: <p>app content</p>,
+    project: <p>project content</p>,
+  };
 
 const items: MenuProps['items'] = [
   getItem('Personal Information', 'sub1', <MailOutlined />, [
@@ -58,30 +95,46 @@ const DashBoard: React.FC = () => {
     console.log('click ', e);
   };
 
+  const [activeTabKey1, setActiveTabKey1] = useState<string>('tab1');
+  const [activeTabKey2, setActiveTabKey2] = useState<string>('app');
+
+  const onTab1Change = (key: string) => {
+    setActiveTabKey1(key);
+  };
+  const onTab2Change = (key: string) => {
+    setActiveTabKey2(key);
+  };
+
   return (
-    <><Menu
+    <>
+    <Menu
           onClick={onClick}
           style={{ width: 256 }}
           defaultSelectedKeys={['1']}
           defaultOpenKeys={['sub1']}
           mode="inline"
-          items={items} /><Row gutter={16}>
-              <Col span={8}>
-                  <Card title="Sassa Number" bordered={false}>
-                      Card content
-                  </Card>
-              </Col>
-              <Col span={8}>
-                  <Card title="Tax Number" bordered={false}>
-                      Card content
-                  </Card>
-              </Col>
-              <Col span={8}>
-                  <Card title="Grant Application" bordered={false}>
-                      Card content
-                  </Card>
-              </Col>
-          </Row></>
+          items={items} /><Card
+              style={{ width: '100%' }}
+              title="Card title"
+              extra={<a href="#">More</a>}
+              tabList={tabList}
+              activeTabKey={activeTabKey1}
+              onTabChange={onTab1Change}
+          >
+              {contentList[activeTabKey1]}
+          </Card>
+          <br />
+          <br />
+          <Card
+              style={{ width: '100%' }}
+              tabList={tabListNoTitle}
+              activeTabKey={activeTabKey2}
+              tabBarExtraContent={<a href="#">More</a>}
+              onTabChange={onTab2Change}
+          >
+              {contentListNoTitle[activeTabKey2]}
+          </Card>
+          </>
   );
 };
 
