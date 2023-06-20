@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Form, Input, Row, Col, Image } from 'antd';
+import { Form, Input, Row, Col, Image, Button } from 'antd';
 import styles from './CardRegister.module.css';
 
 const LinkCard = () => {
@@ -46,6 +46,7 @@ const LinkCard = () => {
             </Form.Item>
           </Col>
         </Row>
+        <Button type='primary'>Save Card</Button>
       </Form>
       </div>
       <div className={styles.cardImage}>
