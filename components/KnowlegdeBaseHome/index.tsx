@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { handleImageLoad } from '../ImageLoad';
-import styles from './home.module.css';
+import styles from './KnowlegdeBaseHome.module.css';
 import React from 'react';
 import Card from '../KnowledgeCard';
 
@@ -27,6 +27,7 @@ type PageData = {
 type SearchResultProps = {
   result: unknown; // Replace with the appropriate type for search result
 };
+
 
 const SearchResult = ({ result }: SearchResultProps) => {
   // Implement the component for displaying search results
