@@ -36,9 +36,11 @@ const LoginForm = () => {
           <Input.Password prefix={<LockOutlined />} placeholder="Password" />
         </Form.Item>
         <Form.Item>
+          <Link href='/ApplyForm'>
           <Button className={styles.button} htmlType="submit" block>
             Log in
           </Button>
+          </Link>
         </Form.Item>
       </Form>
       <div className={styles.heading5}>

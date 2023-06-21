@@ -1,0 +1,27 @@
+.sidebar {
+    padding: 10px;
+    background-color: #fff;
+  }
+  
+  .menu {
+    margin-top: 16px;
+  }
+
+  .menu .ant-menu-item span {
+    padding: 60px 0;
+  }
+
+  :where(.css-dev-only-do-not-override-12jzuas).ant-menu-inline >.ant-menu-item, :where(.css-dev-only-do-not-override-12jzuas).ant-menu-vertical >.ant-menu-item, :where(.css-dev-only-do-not-override-12jzuas).ant-menu-inline >.ant-menu-submenu>.ant-menu-submenu-title, :where(.css-dev-only-do-not-override-12jzuas).ant-menu-vertical >.ant-menu-submenu>.ant-menu-submenu-title {
+    height: 61px;
+    line-height: 40px;
+}
+
+.container{
+    margin-left: 248px;
+    margin-top: -48px;
+}
+
+
+
+
+  
