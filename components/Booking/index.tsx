@@ -1,7 +1,9 @@
-import { Form, Input, Select, Button } from 'antd';
+import { Form, Input, Select, Button, DatePicker } from 'antd';
 import { UserOutlined, MailOutlined, PhoneOutlined } from '@ant-design/icons';
 import type { DatePickerProps } from 'antd';
 import styles from './Booking.module.css';
+
+
 
 const { Option } = Select;
 
@@ -9,10 +11,14 @@ const branches = ['Branch 1', 'Branch 2', 'Branch 3']; //should be replaced with
 
 const reasons = ['Reason 1', 'Reason 2', 'Reason 3']; //should be replaced with backed api
 
-const onChange: DatePickerProps['onChange'] = (date, dateString) => {
-    console.log(date, dateString);
-  };
-  
+const onChange = (date: moment.Moment | null, dateString: string) => {
+  console.log(date, dateString);
+};
+const onFinish = (values: any) => {
+  console.log('Form values:', values);
+  // Here you can handle the form submission and any further actions
+};
+
 
 const Booking: React.FC = () => {
   const onFinish = (values: any) => {
@@ -68,7 +74,12 @@ const Booking: React.FC = () => {
           ))}
         </Select>
       </Form.Item>
-      
+      <Form.Item
+  name="date"
+  rules={[{ required: true, message: 'Please select a date!' }]}
+>
+  <DatePicker onChange={onChange} placeholder="Select Date" className={styles.datePicker} />
+</Form.Item>
       <Form.Item>
         <Button type="primary" htmlType="submit">
           Submit
