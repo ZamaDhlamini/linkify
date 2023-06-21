@@ -1,80 +1,39 @@
-import { Form, Input, Select, Button, DatePicker } from 'antd';
+import { Form, Input, Select, Button, DatePicker, message } from 'antd';
 import { UserOutlined, MailOutlined, PhoneOutlined } from '@ant-design/icons';
 import type { DatePickerProps } from 'antd';
 import styles from './Booking.module.css';
 import moment from 'moment';
-import { useEffect, useMemo, useState } from "react";
-import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+import { useState } from "react";
 
 const { Option } = Select;
 
-const branches = ['Branch 1', 'Branch 2', 'Branch 3']; //should be replaced with backend api
+const branches = ['Branch 1', 'Branch 2', 'Branch 3']; // should be replaced with backend API
 
-const reasons = ['Reason 1', 'Reason 2', 'Reason 3']; //should be replaced with backed api
+const reasons = ['Reason 1', 'Reason 2', 'Reason 3']; // should be replaced with backend API
 
 const onChange = (date: moment.Moment | null, dateString: string) => {
   console.log(date, dateString);
 };
 
 const Booking: React.FC = () => {
-  const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY;
-  
-  const [selectedLocation, setSelectedLocation] = useState(null);
-
-  const libraries = ["places"];
-  const mapContainerStyle = {
-    width: "100%",
-    height: "400px",
-  };
-  const center = {
-    lat: 0, // Set the initial latitude of the map
-    lng: 0, // Set the initial longitude of the map
-  };
-
-  const handleMapClick = (event) => {
-    const lat = event.latLng.lat();
-    const lng = event.latLng.lng();
-    setSelectedLocation({ lat, lng });
-  };
+  const [bookingStatus, setBookingStatus] = useState('');
 
   const onFinish = (values: any) => {
     console.log('Form values:', values);
     // Here you can handle the form submission and any further actions
+    setBookingStatus('success');
+    message.success('Booked successfully');
   };
-
-  const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: googleMapsApiKey,
-    libraries: libraries,
-  });
-
-  const mapOptions = useMemo(
-    () => ({
-      zoomControl: true,
-    }),
-    []
-  );
-
-  useEffect(() => {
-    if (isLoaded && !loadError) {
-      // Update the center of the map when the selected location changes
-      if (selectedLocation) {
-        center.lat = selectedLocation.lat;
-        center.lng = selectedLocation.lng;
-      }
-    }
-  }, [isLoaded, loadError, selectedLocation]);
-
-  if (loadError) {
-    return <div>Error loading maps</div>;
-  }
-
-  if (!isLoaded) {
-    return <div>Loading maps</div>;
-  }
 
   return (
     <>
       <h1 className={styles.heading}>Book a Branch Visit!</h1>
+      {bookingStatus === 'success' && (
+        <div className={styles.bookingMessage}>Booked successfully</div>
+      )}
+      {/* <div className={styles.image}>
+      <img src='/sassa_branch.jpg'></img>
+      </div> */}
       <Form onFinish={onFinish} className={styles.container}>
         <Form.Item
           name="userId"
@@ -134,16 +93,6 @@ const Booking: React.FC = () => {
           </Button>
         </Form.Item>
       </Form>
-      <GoogleMap
-        mapContainerStyle={mapContainerStyle}
-        center={center}
-        options={mapOptions}
-        onClick={handleMapClick}
-      >
-        {selectedLocation && (
-          <Marker position={selectedLocation} />
-        )}
-      </GoogleMap>
     </>
   );
 };
