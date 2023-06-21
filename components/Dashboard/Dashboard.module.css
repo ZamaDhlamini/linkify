@@ -1,6 +1,6 @@
 .sidebar {
     padding: 10px;
-    background-color: #fff;
+    background-color: #2F345D;
   }
   
   .menu {
@@ -18,9 +18,13 @@
 
 .container{
     margin-left: 248px;
-    margin-top: -48px;
+    margin-top: -285px;
 }
 
+.table{
+    margin-left: 247px;
+    margin-top: 75px;
+}
 
 
 

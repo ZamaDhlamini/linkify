@@ -1,4 +1,4 @@
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Avatar, Card, Row, Col } from 'antd';
 import {
   HomeOutlined,
   UserOutlined,
@@ -34,40 +34,59 @@ const Sidebar = () => {
     },
     // Add more grant objects as needed
   ];
+  
+  const userName = 'Your Name'; // Replace 'Your Name' with the actual name
+  
   return (
     <>
-    <div className={styles.menu}>
-    <Sider width={200} theme="light" className={styles.sidebar}>
-        <Menu mode="vertical" defaultSelectedKeys={['home']}>
-          <Menu.Item key="home" icon={<HomeOutlined />}>
-            Home
-          </Menu.Item>
-          <Menu.Item key="users" icon={<UserOutlined />}>
-            Users
-          </Menu.Item>
-          <Menu.Item key="personal-info" icon={<InfoCircleOutlined />}>
-            Personal Information
-          </Menu.Item>
-          <Menu.Item key="map-branches" icon={<EnvironmentOutlined />}>
-            Map of Branches
-          </Menu.Item>
-          <Menu.Item key="sassa-card" icon={<CreditCardOutlined />}>
-            Link of SASSA Card
-          </Menu.Item>
-          <Menu.Item key="FAQ" icon={<QuestionCircleOutlined />}>
-            FAQ
-          </Menu.Item>
-        </Menu>
-      </Sider>
-    </div>
-    <div> 
+      <div className={styles.header}>
+        <Avatar size={64} src="path_to_your_profile_picture" /> {/* Replace 'path_to_your_profile_picture' with the actual path */}
+        <h2 className={styles.greeting}>Hello, {userName}!</h2>
+      </div>
+      <div className={styles.menu}>
+        <Sider width={200} theme="light" className={styles.sidebar}>
+          <Menu mode="vertical" defaultSelectedKeys={['home']}>
+            <Menu.Item key="home" icon={<HomeOutlined />}>
+              Home
+            </Menu.Item>
+            <Menu.Item key="users" icon={<UserOutlined />}>
+              Users
+            </Menu.Item>
+            <Menu.Item key="personal-info" icon={<InfoCircleOutlined />}>
+              Personal Information
+            </Menu.Item>
+            <Menu.Item key="map-branches" icon={<EnvironmentOutlined />}>
+              Map of Branches
+            </Menu.Item>
+            <Menu.Item key="sassa-card" icon={<CreditCardOutlined />}>
+              Link of SASSA Card
+            </Menu.Item>
+            <Menu.Item key="FAQ" icon={<QuestionCircleOutlined />}>
+              FAQ
+            </Menu.Item>
+          </Menu>
+        </Sider>
+      </div>
       <div>
         <div className={styles.container}>
-      <GrantTable data={grantData} />
+          <Row gutter={16}>
+            <Col span={12}>
+              <Card title="SASSA Number" style={{ marginBottom: 16 }}>
+                Content
+              </Card>
+            </Col>
+            <Col span={12}>
+              <Card title="SARS Number" style={{ marginBottom: 16 }}>
+                Content
+              </Card>
+            </Col>
+          </Row>
+        </div>
+        <div className={styles.table}>
+          <GrantTable data={grantData} />
         </div>
       </div>
-    </div>
-      </>
+    </>
   );
 };
 
