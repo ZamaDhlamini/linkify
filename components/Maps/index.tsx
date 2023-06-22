@@ -2,6 +2,7 @@ import { useLoadScript, GoogleMap, Marker, InfoWindow } from '@react-google-maps
 import { useEffect, useState } from 'react';
 import styles from './Maps.module.css';
 import { Button, Input } from 'antd';
+import Link from 'next/link';
 
 interface Place {
   name: string;
@@ -134,7 +135,9 @@ const Maps: React.FC = () => {
                 <h2>{selectedPlace.name}</h2>
                 <p>Address: {selectedPlace.address}</p>
                 <p>Operating Times: {selectedPlace.operatingTimes}</p>
-                {/* Add other information or buttons as needed */}
+                <Link href='/Booking'>
+                <Button className={styles.mapButton}>Book</Button>
+                </Link>
               </div>
             </InfoWindow>
           )}

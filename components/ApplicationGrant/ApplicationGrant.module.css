@@ -30,13 +30,36 @@
 }
 
 .button1{
-    margin-top: 400px;
+    margin-top: 560px;
     margin-left: 60px;
+    width: 200px;
+    height: auto;
+    color: aliceblue;
+    background-color: #2F345D;
+}
+.button2{
+    width: 200px;
+    height: auto;
+    color: aliceblue;
+    background-color: #2F345D;
 }
 
 .imageLogo{
     margin-left: 1300px;
-    margin-top: -500px;
-    width: 30%;
-    height: 30%;
+    margin-top: -600px;
 }
+
+.imageLogo img{
+    width: 100px;
+    height: 150px;
+}
+
+.input {
+    margin-bottom: 30px;
+  }
+
+  .buttonContainer{
+    margin-bottom: 5px;
+    margin-left: 292px;
+    width: 200px;
+  }
