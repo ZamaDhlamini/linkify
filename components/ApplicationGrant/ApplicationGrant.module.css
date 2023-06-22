@@ -1,28 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 
-.container1{
-      background-size: contain; 
-      background-position: center;
-      position: fixed;
-      top: 80%;
-      left: 20%;
-      transform: translate(-50%, -50%);
-      height: 659px; 
-      width: 490px;
-      position: fixed;
-}
-
-.container2{
-      background-size: contain; 
-      background-position: center;
-      position: fixed;
-      top: 80%;
-      left: 60%;
-      transform: translate(-50%, -50%);
-      height: 659px; 
-      width: 490px;
-      position: fixed;
-}
 
 .heading1{
     font-family: 'Roboto Condensed', sans-serif;
@@ -30,8 +7,8 @@
 }
 
 .button1{
-    margin-top: 560px;
-    margin-left: 60px;
+    margin-top: 30px;
+    margin-left: 200px;
     width: 200px;
     height: auto;
     color: aliceblue;
@@ -42,6 +19,8 @@
     height: auto;
     color: aliceblue;
     background-color: #2F345D;
+    margin-bottom: 60px;
+    margin-left: -50px;
 }
 
 .imageLogo{
@@ -56,6 +35,7 @@
 
 .input {
     margin-bottom: 30px;
+    width: 400px
   }
 
   .buttonContainer{
@@ -63,3 +43,14 @@
     margin-left: 292px;
     width: 200px;
   }
+
+  .column2{
+ padding-left: 200px;
+ padding-top: 40px;
+}
+
+.coloumn1{
+    padding-left: 100px;
+    margin-bottom: 30px;
+    padding-top: 40px;
+}
