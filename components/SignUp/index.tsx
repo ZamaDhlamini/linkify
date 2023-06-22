@@ -63,7 +63,7 @@ const SignUpForm = () => {
           </Form.Item>
           <Form.Item>
             <div className={styles.button}>
-              <Link href='/ApplyForm'>
+              <Link href='/DashBoard'>
             <Button type="primary" htmlType="submit">
               Sign Up
             </Button>
