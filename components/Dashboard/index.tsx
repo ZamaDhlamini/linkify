@@ -9,6 +9,7 @@ import {
 } from '@ant-design/icons';
 import styles from './Dashboard.module.css';
 import GrantTable from '../GrantTable';
+import Link from 'next/link';
 
 const { Sider } = Layout;
 
@@ -55,12 +56,16 @@ const Sidebar = () => {
             <Menu.Item key="personal-info" icon={<InfoCircleOutlined />}>
               Personal Information
             </Menu.Item>
+            <Link href='/BranchMaps'>
             <Menu.Item key="map-branches" icon={<EnvironmentOutlined />}>
               Map of Branches
             </Menu.Item>
+            </Link>
+            <Link href='/RegisterCard'>
             <Menu.Item key="sassa-card" icon={<CreditCardOutlined />}>
               Link of SASSA Card
             </Menu.Item>
+            </Link>
             <Menu.Item key="FAQ" icon={<QuestionCircleOutlined />}>
               FAQ
             </Menu.Item>

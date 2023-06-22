@@ -4,6 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: -633px;
   }
   
   /* .sidebar {
@@ -12,7 +13,7 @@
     height: 100vh;
     background-color: #333;
   } */
-  
+
   .autocompleteWrapper {
     width: 100px;
     height: 100px;
@@ -46,5 +47,25 @@
 
   .heading1{
     font-family: 'Roboto Condensed', sans-serif;
-    margin-bottom: 600px;
+    margin-bottom: -73px;
+  }
+
+  .searchContainer{
+    margin-top: 133px;
+    margin-bottom: 698px;
+    margin-left: 475px;
+    width: 1000px;
+    height: 50px;
+  }
+
+  .searchInput{
+    width: 300px;
+    height: auto;
+  }
+
+  .searchButton{
+    width: 200px;
+    margin-left: 10px;
+    color: aliceblue;
+    background-color: #2F345D;
   }

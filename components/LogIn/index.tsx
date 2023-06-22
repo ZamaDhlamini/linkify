@@ -36,7 +36,7 @@ const LoginForm = () => {
           <Input.Password prefix={<LockOutlined />} placeholder="Password" />
         </Form.Item>
         <Form.Item>
-          <Link href='/ApplyForm'>
+          <Link href='/DashBoard'>
           <Button className={styles.button} htmlType="submit" block>
             Log in
           </Button>
@@ -45,9 +45,9 @@ const LoginForm = () => {
       </Form>
       <div className={styles.heading5}>
       <h5>Forgot password?</h5>
-        <Link href='/SignUp'>
+      <Link href="/SignUp">
       <h5>Sign Up</h5>
-        </Link>
+      </Link>
       </div>
     </div>
   );
