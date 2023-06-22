@@ -49,7 +49,16 @@
 
   .contentInner h3{
     font-family: 'Roboto Condensed', sans-serif;
-  }
+    margin-left: 1063px;
+}
+
+.contentInner img{
+    margin-left: 1074px;
+    margin-top: -67px;
+    width: 70px;
+    height: 80px;
+}
+
   
   .footer {
     text-align: center;
@@ -66,4 +75,10 @@
 
   .container{
     margin-top: -150px;
+  }
+
+  .customcard {
+    background-color: #2f345dd7;
+    font-family: 'Roboto Condensed', sans-serif; 
+    color: aliceblue;
   }

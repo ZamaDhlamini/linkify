@@ -73,24 +73,24 @@ const TestDashBoard: React.FC = () => {
         <Content className={styles.content}>
           <div className={styles.contentInner}>
             <h1>Welcome back, Member!</h1>
-            <Avatar size={64} src="/coatofarms.png" />
+            <img src="/coatofarms.png" />
             <h3>Name Surname</h3>
           </div>
           <div>
         <div className={styles.container}>
             <h2>Your Info!</h2>
-          <Row gutter={16}>
-            <Col span={12}>
-              <Card title="SASSA Number" style={{ marginBottom: 16 }}>
-                Content
-              </Card>
-            </Col>
-            <Col span={12}>
-              <Card title="SARS Number" style={{ marginBottom: 16 }}>
-                Content
-              </Card>
-            </Col>
-          </Row>
+            <Row gutter={16}>
+    <Col span={12}>
+      <Card title="SASSA Number" className={styles.customcard} style={{ marginBottom: 16 }}>
+        Content
+      </Card>
+    </Col>
+    <Col span={12}>
+      <Card title="SARS Number" className={styles.customcard} style={{ marginBottom: 16 }}>
+        Content
+      </Card>
+    </Col>
+  </Row>
         </div>
         <div className={styles.table}>
           <GrantTable data={grantData} />
