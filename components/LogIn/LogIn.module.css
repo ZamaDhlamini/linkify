@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 
-.container{
+.form{
 background-repeat: no-repeat;
   background-size: contain; 
   background-position: center;
   position: fixed;
+  /* margin-top: 200px; */
   top: 100%;
   left: 50%;
   transform: translate(-50%, -50%);

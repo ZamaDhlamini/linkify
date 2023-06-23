@@ -4,14 +4,17 @@ import styles from './LogIn.module.css';
 import Link from 'next/link';
 import { useUsers } from '../../pages/providers/person';
 import { ILogin } from '../../pages/providers/person/context';
+import router, { useRouter } from 'next/router';
 
 const LoginForm = () => {
   const { login, Login } = useUsers();
+  const router = useRouter();
 
   const onFinish = async (values: ILogin) => {
     console.log("Received values:", values);
     if (login) {
       login(values);
+      router.push('/DashBoard');
     } else {
       console.log("Failed to logIn");
       alert("Failed to Login");
@@ -21,29 +24,30 @@ const LoginForm = () => {
   return (
     <div>
       <div className={styles.image}>
-            <img src="/linkifylogo.png" alt="Linkify Logo" />
-            </div>
-        <div className={styles.heading}>
-      <h1>Login</h1>
-        </div>
-      <Form name="login-form" onFinish={onFinish} className={styles.container}>
+        <img src="/linkifylogo.png" alt="Linkify Logo" />
+      </div>
+      <div className={styles.heading}>
+        <h1>Login</h1>
+      </div>
+      <Form
+        name="loginForm"
+        onFinish={onFinish}
+        className={styles.form}
+      >
         <Form.Item
-          name="EmailAddress"
-          rules={[
-            {
-              required: true,
-              type: 'email',
-              message: 'Please enter a valid email!',
-            },
-          ]}
+        label='Email'
+          name="userNameOrEmailAddress"
+          labelCol={{span:4}}
+          rules={[{ required: true, message: "Please enter your email address or username" }]}
         >
-          <Input prefix={<UserOutlined />} placeholder="Email" />
+          <Input placeholder="Email address or username" />
         </Form.Item>
         <Form.Item
+        label='Password'
           name="Password"
-          rules={[{ required: true, message: 'Please enter your password!' }]}
+          rules={[{ required: true, message: "Please enter your password" }]}
         >
-          <Input.Password prefix={<LockOutlined />} placeholder="Password" />
+          <Input.Password placeholder="Password" />
         </Form.Item>
         <Form.Item>
           <Button className={styles.button} htmlType="submit" block>
@@ -52,10 +56,10 @@ const LoginForm = () => {
         </Form.Item>
       </Form>
       <div className={styles.heading5}>
-      <h5>Forgot password?</h5>
-      <Link href="/SignUp">
-      <h5>Sign Up</h5>
-      </Link>
+        <h5>Forgot password?</h5>
+        <Link href="/SignUp">
+          <h5>Sign Up</h5>
+        </Link>
       </div>
     </div>
   );

@@ -90,7 +90,7 @@ const UsersProvider: FC<PropsWithChildren<any>> = ({children}) => {
         const decodedToken = decodeToken(data.result.accessToken);
         console.log('Decoded Token:', decodedToken);
   
-        window.location.href = '/';
+        window.location.href = '/DashBoard';
       } else {
         // ...
       }
