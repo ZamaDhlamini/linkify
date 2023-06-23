@@ -17,7 +17,7 @@ const UsersProvider: FC<PropsWithChildren<any>> = ({children}) => {
 
   const createUserMutation = useMutate({
     verb: 'POST',
-    path: 'User/Create',
+    path: 'Person/Create',
   });
 
   const { refetch: getPersonById, error: personByIdError, loading: isLoadingPerson, data: person } = useGet({

@@ -17,14 +17,18 @@ export interface ILogin{
 }
 
 export interface IUsersStateContext{
+    readonly UserGotten?:Array<IUser>;
     readonly UserCreated?: IUser;
     readonly Login?: Array<ILogin>;
     readonly errorMessage?: string;
     readonly logout?: boolean;
 }
 
-export const  INITIAL_STATE: IUsersStateContext = {}
+export const  INITIAL_STATE: IUsersStateContext = {
+    UserGotten:[],
+}
 export interface IUsersActionContext{
+    getUser?:() => void;
     createUser?:(payload:IUser) => void;
     login?:(payload: ILogin) => void;
     logout?: () => void;

@@ -51,6 +51,7 @@ const UploadPage = () => {
             >
               <Button>{type}</Button>
             </Upload>
+            
           </div>
         ))}
       </div>

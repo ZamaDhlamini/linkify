@@ -2,10 +2,20 @@ import { Form, Input, Button } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import styles from './LogIn.module.css';
 import Link from 'next/link';
+import { useUsers } from '../../pages/providers/person';
+import { ILogin } from '../../pages/providers/person/context';
 
 const LoginForm = () => {
-  const onFinish = (values: any) => {
-    console.log('Received values:', values);
+  const { login, Login } = useUsers();
+
+  const onFinish = async (values: ILogin) => {
+    console.log("Received values:", values);
+    if (login) {
+      login(values);
+    } else {
+      console.log("Failed to logIn");
+      alert("Failed to Login");
+    }
   };
 
   return (
@@ -36,11 +46,9 @@ const LoginForm = () => {
           <Input.Password prefix={<LockOutlined />} placeholder="Password" />
         </Form.Item>
         <Form.Item>
-          <Link href='/DashBoard'>
           <Button className={styles.button} htmlType="submit" block>
             Log in
           </Button>
-          </Link>
         </Form.Item>
       </Form>
       <div className={styles.heading5}>
