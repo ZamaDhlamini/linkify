@@ -1,45 +1,46 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { HomeOutlined, EnvironmentOutlined, CreditCardOutlined, SettingOutlined, CalendarOutlined, QuestionCircleOutlined, LogoutOutlined } from '@ant-design/icons';
 import { Avatar, Card, Col, Layout, Menu, Row, theme } from 'antd';
 import styles from './TestDashBoard.module.css';
 import GrantTable from '../GrantTable';
+import { useGrant } from '../../pages/providers/grant';
+import { useUsers } from '../../pages/providers/person';
+import router from 'next/router';
+import Link from 'next/link';
 
 const { Header, Content, Footer, Sider } = Layout;
 
 const TestDashBoard: React.FC = () => {
-    const grantData: Grant[] = [
-        {
-          id: 1,
-          grantType: 'Type A',
-          createdAt: '2023-06-15',
-          description: 'This is grant A',
-          approval: 'Approved',
-          name: 'John',
-          surname: 'Doe',
-        },
-        {
-          id: 2,
-          grantType: 'Type B',
-          createdAt: '2023-06-16',
-          description: 'This is grant B',
-          approval: 'Pending',
-          name: 'Jane',
-          surname: 'Smith',
-        },
-        // Add more grant objects as needed
-      ];
+  const { getGrant, grantData } = useGrant();
+  const {logout} = useUsers();
+
+  useEffect(() => {
+    getGrant();
+  }, []);
+
+  const Logout = async (values: boolean) => {
+    console.log("Received values:", values);
+    if (typeof logout === 'function') {
+      logout();
+    } else {
+      console.log("Failed to log out");
+      alert("Failed to log out");
+    }
+  };
+
   const {
     token: { colorBgContainer },
   } = theme.useToken();
 
   const menuItems = [
-    { icon: HomeOutlined, label: 'Home' },
-    { icon: EnvironmentOutlined, label: 'Map' },
-    { icon: CreditCardOutlined, label: 'Link Sassa Card' },
-    { icon: SettingOutlined, label: 'Manage Card' },
-    { icon: CalendarOutlined, label: 'Book a Branch Visit' },
-    { icon: QuestionCircleOutlined, label: 'FAQ' },
-    { icon: LogoutOutlined, label: 'Logout' },
+    { icon: HomeOutlined, label: 'Home', path: '/' },
+    { icon: HomeOutlined, label: 'Apply for Grant', path: '/ApplyForm' },
+    { icon: EnvironmentOutlined, label: 'Map', path:'/BranchMaps' },
+    { icon: CreditCardOutlined, label: 'Link Sassa Card', path: '/RegisterCard' },
+    { icon: SettingOutlined, label: 'Manage Card', path: '/' },
+    { icon: CalendarOutlined, label: 'Book a Branch Visit', path:'/Booking' },
+    { icon: QuestionCircleOutlined, label: 'FAQ', path:'KnowlegdeBase' },
+    { icon: LogoutOutlined, label: 'Logout', path: '/' },
   ];
 
   return (
@@ -57,16 +58,18 @@ const TestDashBoard: React.FC = () => {
       >
         <div className={styles.logoVertical} />
         <Menu
-          className={styles.menuContent}
-          theme="dark"
-          mode="inline"
-          defaultSelectedKeys={['1']}
-          items={menuItems.map(({ icon: Icon, label }, index) => ({
-            key: String(index + 1),
-            icon: <Icon />,
-            label,
-          }))}
-        />
+  className={styles.menuContent}
+  theme="dark"
+  mode="inline"
+  defaultSelectedKeys={['1']}
+>
+  {menuItems.map(({ icon: Icon, label, path }, index) => (
+    <Menu.Item key={String(index + 1)} icon={<Icon />}>
+      <Link href={path}>{label}</Link>
+    </Menu.Item>
+  ))}
+</Menu>
+
       </Sider>
       <Layout>
         <Header className={styles.header} />
@@ -77,25 +80,25 @@ const TestDashBoard: React.FC = () => {
             <h3>Name Surname</h3>
           </div>
           <div>
-        <div className={styles.container}>
-            <h2>Your Info!</h2>
-            <Row gutter={16}>
-    <Col span={12}>
-      <Card title="SASSA Number" className={styles.customcard} style={{ marginBottom: 16 }}>
-        Content
-      </Card>
-    </Col>
-    <Col span={12}>
-      <Card title="SARS Number" className={styles.customcard} style={{ marginBottom: 16 }}>
-        Content
-      </Card>
-    </Col>
-  </Row>
-        </div>
-        <div className={styles.table}>
-          <GrantTable data={grantData} />
-        </div>
-      </div>
+            <div className={styles.container}>
+              <h2>Your Info!</h2>
+              <Row gutter={16}>
+                <Col span={12}>
+                  <Card title="SASSA Number" className={styles.customcard} style={{ marginBottom: 16 }}>
+                    Content
+                  </Card>
+                </Col>
+                <Col span={12}>
+                  <Card title="SARS Number" className={styles.customcard} style={{ marginBottom: 16 }}>
+                    Content
+                  </Card>
+                </Col>
+              </Row>
+            </div>
+            <div className={styles.table}>
+              <GrantTable data={grantData} />
+            </div>
+          </div>
         </Content>
         <Footer className={styles.footer}>Linkify ©2023 Created by Zama Dhlamini</Footer>
       </Layout>

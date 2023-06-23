@@ -66,9 +66,6 @@ const UsersProvider: FC<PropsWithChildren<any>> = ({children}) => {
       console.error('Error occurred during sign up', error);
     }
   };
-  
-  
-  
 
   const login = async (payload: ILogin) => {
     try {
@@ -82,32 +79,45 @@ const UsersProvider: FC<PropsWithChildren<any>> = ({children}) => {
       });
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
-        saveToken(data.result.accessToken);
+        console.log('Token granted:', data.result.accessToken);
+      
+        // Store the token in local storage or any other secure storage method
+        localStorage.setItem('accessToken', data.result.accessToken);
+      
         dispatch(LoginUserRequestAction(data.request));
-  
-        // Decode the token using the decodeToken function from auth.ts
-        const decodedToken = decodeToken(data.result.accessToken);
-        console.log('Decoded Token:', decodedToken);
-  
         window.location.href = '/DashBoard';
+      
+        // Display success message
+        message.success('Login successful!');
       } else {
-        // ...
+        // Handle error case
       }
     } catch (error) {
-      // ...
+      console.error('Login error:', error);
+      // Handle error case
+      // For example, you can display an error message to the user
+      message.error('Login failed. Please try again.');
     }
-  };    
+  };
   
-  // const logOutUSer = () => {
-  //   dispatch(LogoutUserAction());
-  //   window.location.href = '/signIn';
-  // };
+  
+  
+  
+  
+  const logout: () => void = () => {
+    // Remove the token from local storage or any other storage method
+    localStorage.removeItem('accessToken');
+    // Redirect the user to another window
+    window.open('http://localhost:3000/', '_blank');
+    // Dispatch the logout action
+    dispatch(LogoutUserAction({}));
+  };
+  
   
   
     return(
         <UserContext.Provider value={state}>
-            <UsersActionsContext.Provider value={{createUser, login}}>
+            <UsersActionsContext.Provider value={{createUser, login, logout}}>
                 {children}
             </UsersActionsContext.Provider>
         </UserContext.Provider>

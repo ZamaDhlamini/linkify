@@ -8,3 +8,4 @@ export enum MovieActionEnum{
 
 export const GetGrantRequestAction = createAction<IGrantStateContext, Array<IGrant>>(MovieActionEnum.GetGrantRequest, (grantGotten) => ({grantGotten}));
 export const SearchGrantRequestAction = createAction<IGrantStateContext, IGrant[]>(MovieActionEnum.SearchGrantRequest,(searchedGrant) => ({searchedGrant}));
+

@@ -2,7 +2,7 @@ import { Table } from 'antd';
 import { ColumnsType } from 'antd/lib/table';
 
 interface Grant {
-    id: number;
+    id: string;
     grantType: string;
     createdAt: string;
     description: string;
