@@ -9,7 +9,8 @@ import { useGet, useMutate } from 'restful-react';
 import error from "next/error";
 import decodeToken from "../../../utils/auth";
 import { saveToken } from "../../../utils/auth";
-import { message } from "antd";
+import { message, notification } from "antd";
+import axios from "axios";
 
 
 const UsersProvider: FC<PropsWithChildren<any>> = ({children}) => {
@@ -43,6 +44,27 @@ const UsersProvider: FC<PropsWithChildren<any>> = ({children}) => {
 //     verb: 'POST',
 //     path: 'https://localhost:44311/api/TokenAuth/Authenticate',
 //   });
+
+const getPersonByUserId= async (id:number) => {
+  console.log("get user Id",id)
+
+  try {
+    const response = await fetch(`https://localhost:44311/api/services/app/Person/GetByUserId?id=${id}`);
+    
+    if (response.ok) {
+      const data = await response.json();
+      console.log("testing here", data.result);
+      return data;
+    } else {
+      throw new Error("Error retrieving person");
+    }
+  } catch (error) {
+    console.error("Error retrieving person:", error);
+    // Handle error appropriately (e.g., display error message, throw custom error, etc.)
+    throw error;
+  }
+  
+};
   
   
   const createUser = async (payload) => {
@@ -79,13 +101,16 @@ const UsersProvider: FC<PropsWithChildren<any>> = ({children}) => {
       });
       if (response.ok) {
         const data = await response.json();
-        console.log('Token granted:', data.result.accessToken);
+        console.log('Token granted result:', data.result);
       
         // Store the token in local storage or any other secure storage method
         localStorage.setItem('accessToken', data.result.accessToken);
       
-        dispatch(LoginUserRequestAction(data.request));
-        window.location.href = '/DashBoard';
+        dispatch(LoginUserRequestAction(data.result));
+        await getPersonByUserId(data.result.userId)
+          window.location.href = '/DashBoard';
+      
+        
       
         // Display success message
         message.success('Login successful!');

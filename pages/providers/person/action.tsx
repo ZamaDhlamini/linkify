@@ -1,5 +1,5 @@
 import { createAction } from "redux-actions";
-import { ILogin, IUser, IUsersStateContext } from "./context";
+import { IAuth, ILogin, IUser, IUsersStateContext } from "./context";
 
 export enum UsersActionEnums{
     GetUserRequest = 'GET_USER',
@@ -10,7 +10,7 @@ export enum UsersActionEnums{
     LogoutUser = 'LOGOUT_USER',
 }
 
-export const LoginUserRequestAction = createAction<IUsersStateContext, Array<ILogin>>(UsersActionEnums.LoginUserRequest, (Login) => ({Login}));
+export const LoginUserRequestAction = createAction<IUsersStateContext, IAuth>(UsersActionEnums.LoginUserRequest, (auth) => ({auth}));
 export const GetUserRequestAction = createAction<IUsersStateContext, Array<IUser>>(UsersActionEnums.GetUserRequest, (UserGotten) => ({UserGotten}));
 export const CreateUserRequestAction = createAction<IUsersStateContext, IUser>(UsersActionEnums.CreateUserRequest, (UserCreated) => ({UserCreated}));
 export const CreateUserSuccessAction = createAction<IUsersStateContext, IUser>(UsersActionEnums.CreateUserRequest, (UserCreated) => ({UserCreated}));

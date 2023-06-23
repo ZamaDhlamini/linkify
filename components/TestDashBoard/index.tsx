@@ -12,11 +12,17 @@ const { Header, Content, Footer, Sider } = Layout;
 
 const TestDashBoard: React.FC = () => {
   const { getGrant, grantData } = useGrant();
-  const {logout} = useUsers();
+  const {logout, auth} = useUsers();
 
   useEffect(() => {
     getGrant();
   }, []);
+
+  useEffect(()=>{
+     if(auth){
+      console.log("auth", auth)
+     }
+  },[auth])
 
   const Logout = async (values: boolean) => {
     console.log("Received values:", values);
@@ -63,11 +69,11 @@ const TestDashBoard: React.FC = () => {
   mode="inline"
   defaultSelectedKeys={['1']}
 >
-  {menuItems.map(({ icon: Icon, label, path }, index) => (
-    <Menu.Item key={String(index + 1)} icon={<Icon />}>
-      <Link href={path}>{label}</Link>
-    </Menu.Item>
-  ))}
+{menuItems.map(({ icon: Icon, label, path }) => (
+  <Menu.Item key={path} icon={<Icon />}>
+    <Link href={path}>{label}</Link>
+  </Menu.Item>
+))}
 </Menu>
 
       </Sider>

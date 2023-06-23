@@ -16,10 +16,16 @@ export interface ILogin{
     email?:string
 }
 
+export interface IAuth{
+    accessToken?: string;
+    userId?: string;
+}
+
 export interface IUsersStateContext{
     readonly UserGotten?:Array<IUser>;
     readonly UserCreated?: IUser;
     readonly Login?: Array<ILogin>;
+    auth?:IAuth;
     readonly errorMessage?: string;
     readonly logout?: boolean;
 }
@@ -37,6 +43,6 @@ export interface IUsersActionContext{
 
 const UserContext = createContext<IUsersStateContext>(INITIAL_STATE);
 export const USersStateContext = createContext<IUsersStateContext>({});
-export const UsersActionsContext = createContext<IUsersActionContext | undefined>(undefined);
+export const UsersActionsContext = createContext<IUsersActionContext | undefined>({} as any);
 
 export {UserContext};
