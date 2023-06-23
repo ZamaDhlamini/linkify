@@ -39,11 +39,11 @@ const TestDashBoard: React.FC = () => {
   } = theme.useToken();
 
   const menuItems = [
-    { icon: HomeOutlined, label: 'Home', path: '/' },
+    { icon: HomeOutlined, label: 'Home', path: '/home' },
     { icon: HomeOutlined, label: 'Apply for Grant', path: '/ApplyForm' },
     { icon: EnvironmentOutlined, label: 'Map', path:'/BranchMaps' },
     { icon: CreditCardOutlined, label: 'Link Sassa Card', path: '/RegisterCard' },
-    { icon: SettingOutlined, label: 'Manage Card', path: '/' },
+    { icon: SettingOutlined, label: 'Manage Card', path: '/managecard' },
     { icon: CalendarOutlined, label: 'Book a Branch Visit', path:'/Booking' },
     { icon: QuestionCircleOutlined, label: 'FAQ', path:'KnowlegdeBase' },
     { icon: LogoutOutlined, label: 'Logout', path: '/' },
@@ -67,14 +67,15 @@ const TestDashBoard: React.FC = () => {
   className={styles.menuContent}
   theme="dark"
   mode="inline"
-  defaultSelectedKeys={['1']}
+  defaultSelectedKeys={['1']} // Change this to the corresponding key of the default selected menu item
 >
-{menuItems.map(({ icon: Icon, label, path }) => (
-  <Menu.Item key={path} icon={<Icon />}>
-    <Link href={path}>{label}</Link>
-  </Menu.Item>
-))}
+  {menuItems.map(({ icon: Icon, label, path }, index) => (
+    <Menu.Item key={path} icon={<Icon />}>
+      <Link href={path}>{label}</Link>
+    </Menu.Item>
+  ))}
 </Menu>
+
 
       </Sider>
       <Layout>
