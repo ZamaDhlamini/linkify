@@ -2,4 +2,51 @@
 
 .Heading{
     font-family: 'Roboto Condensed', sans-serif;
+    margin-left: 20px;
 }
+
+.image{
+    margin-left: -20px;
+    margin-top: -219px;
+ }
+ 
+ .imageLogo{
+     margin-left: 1225px;
+     margin-top: -896px;
+ }
+ 
+ .paragraph1{
+     font-family: 'Roboto Condensed', sans-serif;
+     width: 400px;
+     margin-left: 1051px;
+     color: white;
+ }
+ 
+ /* Remove the .scrollText class selector */
+ @keyframes my-animation {
+     from {
+       transform: translateX(100%);
+     }
+     to {
+       transform: translateX(-100%);
+     }
+   }
+   
+   /* Define the class name for your module.css file */
+   .scrollText {
+     /* animation properties */
+     transform: translateX(100%);
+   
+     /* Use the keyframe animation defined above */
+     animation: my-animation 15s linear infinite;
+   }
+
+   .uploadButton{
+    color: aliceblue;
+    background-color: #2F345D;
+   }
+
+   .submitButton{
+    color: aliceblue;
+    background-color: #2F345D;
+   }

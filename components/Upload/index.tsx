@@ -70,10 +70,28 @@ const UploadPage = () => {
           </div>
         ))}
       </div>
-      <Button onClick={handleUpload} disabled={fileList.length !== 11} icon={<UploadOutlined />}>
+      <Button onClick={handleUpload} disabled={fileList.length !== 11} icon={<UploadOutlined />} className={styles.uploadButton}>
         Upload
       </Button>
+      {/* <Button  className={styles.u}>
+        Submit form
+      </Button> */}
+      <Button className={styles.submitButton}>Submit form</Button>
+      <div className={styles.image}>
+      <img src="/banner.png" alt="Banner box" />
     </div>
+    <div className={styles.imageLogo}>
+          <img src="/coatofarms.png" alt="Banner box" />
+        </div><div className={styles.paragraph1}>
+          <div className={styles.scrollText}>
+            <p>
+              The Republic of South Africa is a parliamentary republic with a three-tier system of government and an
+              independent judiciary, operating in a parliamentary system.
+            </p>
+          </div>
+    </div>
+    </div>
+    
   );
   
 };
