@@ -1,11 +1,11 @@
 import React, { FC, PropsWithChildren, useContext, useEffect, useReducer, useState } from 'react';
-import { MovieReducer } from './reducer';
+import { GrantReducer } from './reducer';
 import {GrantActionContext, GrantStateContext, IGrant,INITIAL_STATE,} from './context';
 import { useGet, useMutate } from 'restful-react';
 import { GetGrantRequestAction, SearchGrantRequestAction } from './action';
 
 const GrantProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(MovieReducer, INITIAL_STATE);
+    const [state, dispatch] = useReducer(GrantReducer, INITIAL_STATE);
     const [grantData, setGrantData] = useState([]); // Add grantData state
   
     const { data, refetch: getMoviesHttp } = useGet({
