@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
+.balance,
+.heading{
+    font-family: 'Roboto Condensed', sans-serif;
+    margin-right: 664px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .buy{
+    font-family: 'Roboto Condensed', sans-serif;
+  }
+
+  .electricity{
+    font-family: 'Roboto Condensed', sans-serif;
+  }
+
+  .buySection{
+    margin-right: 664px;
+  }
+
+  .imageLogo{
+    margin-left: 1016px;
+    margin-top: -896px;
+}
+
+  .image{
+    margin-left: 207px;
+    margin-top: -690px
+ }
+  
+  .creditCard {
+    width: 400px;
+    height: 250px;
+    background-color: #333;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    perspective: 1000px;
+    margin-right: 664px;
+    margin-top: 99px;
+  }
+  
+  .cardFront,
+  .cardBack {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: transform 0.6s;
+    backface-visibility: hidden;
+  }
+  
+  .cardFront {
+    transform: rotateY(0deg);
+  }
+  
+  .cardBack {
+    transform: rotateY(180deg);
+  }
+  
+  .cardLogo {
+    height: 30px;
+    width: 60px;
+    background-color: white;
+    margin: 20px;
+  }
+  
+  .cardChip {
+    height: 40px;
+    width: 60px;
+    background-color: gray;
+    margin-top: 10px;
+    margin-left: 20px;
+  }
+  
+  .cardNumber {
+    color: white;
+    font-size: 18px;
+    margin-top: 60px;
+    margin-left: 20px;
+  }
+  
+  .cardName {
+    color: white;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+  
+  .cardValid {
+    height: 30px;
+    width: 100px;
+    background-color: gray;
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+  
+  .cardCvv {
+    color: white;
+    font-size: 16px;
+    margin-top: 100px;
+    margin-left: 20px;
+  }
+  
+  .cardBack {
+    transform: rotateY(180deg);
+  }
+  
+  /* Add a local class alongside the input selector */
+  .cardInput input {
+    margin-bottom: 10px;
+  }
+  
