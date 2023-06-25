@@ -22,28 +22,26 @@ const LoginForm = () => {
   };
 
   return (
-    <div>
+      <>
       <div className={styles.image}>
-        <img src="/linkifylogo.png" alt="Linkify Logo" />
-      </div>
-      <div className={styles.heading}>
+      <img src="/linkifylogo.png" alt="Linkify Logo" />
+    </div><div className={styles.heading}>
         <h1>Login</h1>
-      </div>
-      <Form
+      </div><Form
         name="loginForm"
         onFinish={onFinish}
         className={styles.form}
       >
         <Form.Item
-        label='Email'
+          label='Email'
           name="userNameOrEmailAddress"
-          labelCol={{span:4}}
+          labelCol={{ span: 4 }}
           rules={[{ required: true, message: "Please enter your email address or username" }]}
         >
           <Input placeholder="Email address or username" />
         </Form.Item>
         <Form.Item
-        label='Password'
+          label='Password'
           name="Password"
           rules={[{ required: true, message: "Please enter your password" }]}
         >
@@ -55,13 +53,10 @@ const LoginForm = () => {
           </Button>
         </Form.Item>
       </Form>
-      <div className={styles.heading5}>
-        <h5>Forgot password?</h5>
-        <Link href="/SignUp">
-          <h5>Sign Up</h5>
-        </Link>
-      </div>
-    </div>
+      <Link href="/SignUp">
+        <h5 className={styles.heading5}>Sign Up</h5>
+      </Link>
+      </>
   );
 };
 

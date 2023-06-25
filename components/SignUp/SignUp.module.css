@@ -13,14 +13,15 @@ background-repeat: no-repeat;
   height: 659px; 
   width: 490px;
   position: fixed;
+  margin-top: -11px;
 }
 
 .heading1{
     
     font-family: 'Roboto Condensed', sans-serif;
     margin-left: 155px;
-    margin-top: 150px;
-    font-size: 20px;
+    margin-top: -77px;
+    font-size: 35px;
 }
 
 .heading2{
@@ -65,7 +66,8 @@ background-repeat: no-repeat;
   }
 
   .button{
-    color:#2F345D;
+    background-color:#2F345D;
+    color: aliceblue;
     
   }
   

@@ -7,6 +7,7 @@
     margin-top: 126px;
 }
 
+.modalContext,
 .heading{
     font-family: 'Roboto Condensed', sans-serif;
 }
@@ -16,6 +17,7 @@
     width: 60px;
 }
 
+.modalButton,
 .submitButton{
     color: aliceblue;
     background-color: #2F345D;

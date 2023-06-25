@@ -21,41 +21,41 @@ const SignUpForm = () => {
   };
 
   return (
-    <><Form onFinish={onFinish} className={styles.loginBox}>
+    <>
+      <h1 className={styles.heading1}>Join Linkify!</h1>
+    <Form onFinish={onFinish} className={styles.container}>
       <div className={styles.Inputs}>
-
-        <Form.Item label="EmailAddress" name="EmailAddress" rules={[{ required: true, message: "Please enter your email" }]}>
+        <Form.Item labelCol={{span:6}} label="EmailAddress" name="EmailAddress" rules={[{ required: true, message: "Please enter your email" }]}>
           <Input />
         </Form.Item>
-        <Form.Item label="Password" name="Password" rules={[{ required: true, message: "Please enter your password" }]}>
+        <Form.Item labelCol={{span:6}} label="Password" name="Password" rules={[{ required: true, message: "Please enter your password" }]}>
           <Input.Password />
         </Form.Item>
-        <Form.Item label="UserName" name="UserName" rules={[{ required: true, message: "Please enter your username" }]}>
+        <Form.Item labelCol={{span:6}} label="UserName" name="UserName" rules={[{ required: true, message: "Please enter your username" }]}>
           <Input />
         </Form.Item>
-        <Form.Item label="SurName" name="SurName" rules={[{ required: true, message: "Please enter your surname" }]}>
+        <Form.Item labelCol={{span:6}} label="SurName" name="SurName" rules={[{ required: true, message: "Please enter your surname" }]}>
           <Input />
         </Form.Item>
-        <Form.Item label="IdNumber" name="IdNumber" rules={[{ required: true, message: "Please enter your surname" }]}>
+        <Form.Item labelCol={{span:6}} label="IdNumber" name="IdNumber" rules={[{ required: true, message: "Please enter your surname" }]}>
           <Input />
         </Form.Item>
         <Form.Item
           label="Phone Number"
           name="PhoneNumber"
+          labelCol={{span:6}}
           rules={[{ required: true, message: "Please enter your phone number" }]}
         >
           <Input />
         </Form.Item>
-        <Form.Item label="Name" name="Name" rules={[{ required: true, message: "Please enter your name" }]}>
+        <Form.Item labelCol={{span:6}} label="Name" name="Name" rules={[{ required: true, message: "Please enter your name" }]}>
           <Input />
         </Form.Item>
       </div>
       <Form.Item>
-        <div className={styles.button}>
-          <Button type="primary" htmlType="submit">
+          <Button className={styles.button} htmlType="submit">
             Sign Up
           </Button>
-        </div>
       </Form.Item>
     </Form><><div className={styles.image}>
       <img src="/banner.png" alt="Banner box" />

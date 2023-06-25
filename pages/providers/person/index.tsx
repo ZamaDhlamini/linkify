@@ -115,10 +115,10 @@ const getPersonByUserId= async (id:number) => {
   
         if (data.result.userId === 1) {
           // Redirect to "/deshboard" for User ID 1
-          window.location.href = '/DashBoard';
+          window.location.href = '/';
         } else {
           // Redirect to "/homes" for other User IDs
-          window.location.href = '/';
+          window.location.href = '/DashBoard';
         }
   
         // Display success message

@@ -32,17 +32,13 @@ background-repeat: no-repeat;
     color:white;
     background-color: #2F345D;
     position: fixed;
-    width: 100px;
+    width: 50px;
 }
 
 .heading5{
     font-family: 'Roboto Condensed', sans-serif;
-    padding-left: 520px;
-    padding-top: 410px;
-}
-
-.heading5 h5 {
-  margin-left: 10px; /* Adjust the margin as needed */
+    margin-left: 10px;
+    margin-top: -114px;
 }
 
 .image{

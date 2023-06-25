@@ -4,6 +4,7 @@ import type { DatePickerProps } from 'antd';
 import styles from './Booking.module.css';
 import moment from 'moment';
 import { useState } from "react";
+import Link from 'next/link';
 
 const { Option } = Select;
 
@@ -106,8 +107,11 @@ const Booking: React.FC = () => {
         title="Booking Confirmation"
         okText="OK"
         closable={false}
-      >
-        <p>Booking confirmed</p>
+        >
+        <p className={styles.modalContext}>Booking confirmed</p>
+          <Link href='/DashBoard'>
+        <Button className={styles.modalButton}>Go to dashBoard</Button>
+          </Link>
       </Modal>
     </>
   );
