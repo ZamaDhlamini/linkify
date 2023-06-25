@@ -54,8 +54,9 @@ const OnlineBankingPage = () => {
       <div className={styles.buySection}>
         <p className={styles.buy}>Buy</p>
         <p className={styles.electricity}>Electricity</p>
-        <Button onClick={handlePaymentButtonClick}>Buy Electricity</Button>
-        <PaymentPage isOpen={isPaymentModalOpen} onClose={handlePaymentModalClose} />
+        <Link href='/ElectricityPayment'>
+        <Button>Buy Electricity</Button>
+        </Link>
       </div>
       <div className={styles.image}>
       <img src="/banner.png" alt="Banner box" />

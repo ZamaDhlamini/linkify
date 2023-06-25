@@ -6,6 +6,10 @@
     margin-right: 664px;
 }
 
+.balance{
+  margin-right: 901px;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -14,14 +18,18 @@
 
   .buy{
     font-family: 'Roboto Condensed', sans-serif;
+    font-size: 29px;
+  
   }
 
   .electricity{
     font-family: 'Roboto Condensed', sans-serif;
+    
   }
 
   .buySection{
     margin-right: 664px;
+    margin-right: 912px;
   }
 
   .imageLogo{
@@ -31,7 +39,7 @@
 
   .image{
     margin-left: 207px;
-    margin-top: -690px
+    margin-top: -638px
  }
   
   .creditCard {

@@ -7,11 +7,15 @@ import { useGrant } from '../../pages/providers/grant';
 import { useUsers } from '../../pages/providers/person';
 import router from 'next/router';
 import Link from 'next/link';
+import { Button } from 'antd';
+import { useNumber } from '../../pages/providers/sarsNumber';
 
 const { Header, Content, Footer, Sider } = Layout;
 
 const TestDashBoard: React.FC = () => {
   const { getGrant, grantData } = useGrant();
+  const { getNumber, numberData } = useNumber();
+
   const {logout, auth} = useUsers();
 
   useEffect(() => {
@@ -92,12 +96,12 @@ const TestDashBoard: React.FC = () => {
               <Row gutter={16}>
                 <Col span={12}>
                   <Card title="SASSA Number" className={styles.customcard} style={{ marginBottom: 16 }}>
-                    Content
+                    <Button>Get Sassa Number</Button>
                   </Card>
                 </Col>
                 <Col span={12}>
                   <Card title="SARS Number" className={styles.customcard} style={{ marginBottom: 16 }}>
-                    Content
+                  <Button>Get Sassa Number</Button>
                   </Card>
                 </Col>
               </Row>

@@ -4,10 +4,11 @@ export interface IGrant{
     id: string,
     grantType: string,
     createdAt: string;
-    description: string;
+    grantDescription: string;
     approval: string;
-    name: string;
+    grantName: string;
     surname: string;
+    grantAmount: number;
 }
 
 export const INITIAL_STATE: IGrantStateContext={

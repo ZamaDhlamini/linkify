@@ -1,88 +1,54 @@
 import { useEffect } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
+import { useRouter } from 'next/router';
 import Image from 'next/image';
-import styles from './Payment.module.css';
+import styles from './Payment.module.css'
+import { Button } from 'antd';
+import { Input } from 'antd';
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string);
+loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string);
 
-interface PaymentModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
+const PaymentPage = (): JSX.Element => {
+  const router = useRouter();
+  const { success, canceled } = router.query;
 
-const PaymentPage = ({ isOpen, onClose }: PaymentModalProps): JSX.Element | null => {
   useEffect(() => {
-    if (!isOpen) {
-      return;
-    }
-
-    const handleEscapeKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        onClose();
+    if (success !== undefined || canceled !== undefined) {
+      if (success) {
+        console.log('Order placed! You will receive an email confirmation.');
       }
-    };
 
-    document.addEventListener('keydown', handleEscapeKey);
-
-    return () => {
-      document.removeEventListener('keydown', handleEscapeKey);
-    };
-  }, [isOpen, onClose]);
-
-  const handlePaymentSubmit = async () => {
-    const stripe = await stripePromise;
-    const response = await fetch('/api/payment/create-checkout-session', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ price: 200 }), // Customize the price as per your requirements
-    });
-
-    const session = await response.json();
-    const result = await stripe.redirectToCheckout({
-      sessionId: session.id,
-    });
-
-    if (result.error) {
-      console.error(result.error.message);
+      if (canceled) {
+        console.log('Order canceled -- continue to shop around and checkout when you’re ready.');
+      }
     }
-  };
-
-  if (!isOpen) {
-    return null;
-  }
+  }, [success, canceled]);
 
   return (
-    <div className={styles.modal}>
-      <div className={styles.modalContent}>
-        <button className={styles.closeButton} onClick={onClose}>
-          &times;
-        </button>
-        <form>
-          <section className={styles.section}>
-            <div>
-              <div className={styles.image}>
-                {/* <Image src="{{IMAGE_URL}}" alt="Electricity" width={150} height={150} /> */}
-              </div>
-              <div className={styles.description}>
-                <h3 className={styles.heading}>Home Electricity</h3>
-                <h5 className={styles.price}>R200</h5>
-              </div>
-            </div>
-            <button className={styles.button} type="button" onClick={handlePaymentSubmit}>
-              Proceed to Payment
-            </button>
-          </section>
+    <form action="/api/users" method="POST">
+      <section className={styles.section}>
+        <div>
           <div className={styles.image}>
-            <img src="/banner.png" alt="Banner box" />
+            {/* <Image src="{{IMAGE_URL}}" alt="Electricity" width={150} height={150} /> */}
           </div>
-          <div className={styles.imageLogo}>
-            <img src="/coatofarms.png" alt="Banner box" />
+          <div className={styles.description}>
+            <h3 className={styles.heading}>Home Electricity</h3>
+            <h5 className={styles.price}>R200</h5>
           </div>
-        </form>
+        </div>
+        <Input placeholder="Meter Number" />
+        <Input placeholder="Amount" />
+        <button className={styles.button} type="submit" role="link">
+          Checkout
+        </button>
+      </section>
+      <div className={styles.image}>
+        <img src="/banner.png" alt="Banner box" />
       </div>
-    </div>
+      <div className={styles.imageLogo}>
+        <img src="/coatofarms.png" alt="Banner box" />
+      </div>
+    </form>
   );
 };
 

@@ -5,9 +5,9 @@ interface Grant {
     id: string;
     grantType: string;
     createdAt: string;
-    description: string;
+    grantDescription: string;
     approval: string;
-    name: string;
+    grantName: string;
     surname: string;
   }
   
@@ -24,29 +24,14 @@ interface Grant {
         key: 'grantType',
       },
       {
-        title: 'Created At',
-        dataIndex: 'createdAt',
-        key: 'createdAt',
-      },
-      {
         title: 'Description',
-        dataIndex: 'description',
+        dataIndex: 'grantDescription',
         key: 'description',
       },
       {
-        title: 'Approval',
-        dataIndex: 'approval',
-        key: 'approval',
-      },
-      {
-        title: 'Name',
-        dataIndex: 'name',
+        title: 'Grant Name',
+        dataIndex: 'grantName',
         key: 'name',
-      },
-      {
-        title: 'Surname',
-        dataIndex: 'surname',
-        key: 'surname',
       },
     ];
   
