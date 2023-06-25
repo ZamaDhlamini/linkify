@@ -1,59 +1,70 @@
-import {
-    useLoadScript,
-    GoogleMap,
-    MarkerF,
-    CircleF,
-  } from '@react-google-maps/api';
-  import type { NextPage } from 'next';
-  import { useMemo, useState } from 'react';
-  import usePlacesAutocomplete, {
-    getGeocode,
-    getLatLng,
-  } from 'use-places-autocomplete';
-  import styles from './BookingMaps.module.css';
-  
-  const BookingMaps: NextPage = () => {
-    const [lat, setLat] = useState(27.672932021393862);
-    const [lng, setLng] = useState(85.31184012689732);
-  
-    const libraries = useMemo(() => ['places'], []);
-    const mapCenter = useMemo(() => ({ lat: lat, lng: lng }), [lat, lng]);
-  
-    const mapOptions = useMemo<google.maps.MapOptions>(
-      () => ({
-        disableDefaultUI: true,
-        clickableIcons: true,
-        scrollwheel: false,
-      }),
-      []
-    );
-  
-    const { isLoaded } = useLoadScript({
-      googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY as string,
-      libraries: libraries as any,
-    });
-  
-    if (!isLoaded) {
-      return <p>Loading...</p>;
+import { useLoadScript, GoogleMap, Marker } from '@react-google-maps/api';
+import type { NextPage } from 'next';
+import { useMemo, useState, useEffect } from 'react';
+import usePlacesAutocomplete from 'use-places-autocomplete';
+import { getGeocode, getLatLng } from 'use-places-autocomplete';
+import styles from './BookingMaps.module.css';
+
+const BookingMaps: NextPage = () => {
+  const [lat, setLat] = useState<number | null>(null);
+  const [lng, setLng] = useState<number | null>(null);
+
+  const libraries = useMemo(() => ['places'], []);
+  const mapCenter = useMemo(() => ({ lat: lat || 0, lng: lng || 0 }), [lat, lng]);
+
+  const mapOptions = useMemo<google.maps.MapOptions>(
+    () => ({
+      disableDefaultUI: true,
+      clickableIcons: true,
+      scrollwheel: false,
+    }),
+    []
+  );
+
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY as string,
+    libraries: libraries as any,
+  });
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setLat(position.coords.latitude);
+          setLng(position.coords.longitude);
+        },
+        (error) => {
+          console.error('Error getting current position:', error);
+        }
+      );
+    } else {
+      console.error('Geolocation is not supported by this browser.');
     }
+  }, []);
+
+  if (!isLoaded) {
+    return <p>Loading...</p>;
+  }
   
-    return (
-      <div className={styles.homeWrapper}>
-        <GoogleMap
-          options={mapOptions}
-          zoom={14}
-          center={mapCenter}
-          mapTypeId={google.maps.MapTypeId.ROADMAP}
-          mapContainerStyle={{ width: '3000px', height: '400px' }}
-          onLoad={(map) => console.log('Map Loaded')}
-        >
-          <MarkerF
-            position={mapCenter}
+  return (
+    <div className={styles.homeWrapper}>
+      <GoogleMap
+        options={mapOptions}
+        zoom={14}
+        center={mapCenter}
+        mapTypeId={google.maps.MapTypeId.ROADMAP}
+        mapContainerStyle={{ width: '3000px', height: '400px' }}
+        onLoad={(map) => console.log('Map Loaded')}
+      >
+        {lat !== null && lng !== null && (
+          <Marker
+            position={{ lat, lng }}
             onLoad={() => console.log('Marker Loaded')}
           />
-        </GoogleMap>
-      </div>
-    );
+        )}
+      </GoogleMap>
+    </div>
+  );
   };
   
   const PlacesAutocomplete = ({

@@ -1,4 +1,4 @@
-import { Form, Input, Select, Button, DatePicker, message } from 'antd';
+import { Form, Input, Select, Button, DatePicker, message, Modal } from 'antd';
 import { UserOutlined, MailOutlined, PhoneOutlined } from '@ant-design/icons';
 import type { DatePickerProps } from 'antd';
 import styles from './Booking.module.css';
@@ -7,9 +7,9 @@ import { useState } from "react";
 
 const { Option } = Select;
 
-const branches = ['Branch 1', 'Branch 2', 'Branch 3']; // should be replaced with backend API
+const branches = ['Chartwell Sassa Branch', 'Soweto Sassa Branch', 'Fourways Sassa Branch']; // should be replaced with backend API
 
-const reasons = ['Reason 1', 'Reason 2', 'Reason 3']; // should be replaced with backend API
+const reasons = ['Collection', 'Enquire', 'Report Fraud']; // should be replaced with backend API
 
 const onChange = (date: moment.Moment | null, dateString: string) => {
   console.log(date, dateString);
@@ -17,12 +17,18 @@ const onChange = (date: moment.Moment | null, dateString: string) => {
 
 const Booking: React.FC = () => {
   const [bookingStatus, setBookingStatus] = useState('');
+  const [isModalVisible, setIsModalVisible] = useState(false); // State to control the visibility of the modal
 
   const onFinish = (values: any) => {
     console.log('Form values:', values);
     // Here you can handle the form submission and any further actions
     setBookingStatus('success');
     message.success('Booked successfully');
+    setIsModalVisible(true); // Show the modal when the form is successfully submitted
+  };
+
+  const handleModalClose = () => {
+    setIsModalVisible(false); // Hide the modal
   };
 
   return (
@@ -88,11 +94,21 @@ const Booking: React.FC = () => {
           <DatePicker onChange={onChange} placeholder="Select Date" className={styles.datePicker} />
         </Form.Item>
         <Form.Item>
-          <Button type="primary" htmlType="submit">
+          <Button className={styles.submitButton} htmlType="submit">
             Submit
           </Button>
         </Form.Item>
       </Form>
+      <Modal
+        visible={isModalVisible}
+        onCancel={handleModalClose}
+        onOk={handleModalClose}
+        title="Booking Confirmation"
+        okText="OK"
+        closable={false}
+      >
+        <p>Booking confirmed</p>
+      </Modal>
     </>
   );
 };

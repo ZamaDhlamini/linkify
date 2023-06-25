@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Upload, Button } from 'antd';
+import { Upload, Button, message, Modal } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
+import Link from 'next/link';
 import styles from './Upload.module.css';
 
 const documentTypes = [
@@ -19,6 +20,8 @@ const documentTypes = [
 
 const UploadPage = () => {
   const [fileList, setFileList] = useState<any[]>([]);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
 
   const handleChange = (info: any, index: number) => {
     let newFileList = [...fileList];
@@ -29,6 +32,19 @@ const UploadPage = () => {
   const handleUpload = () => {
     // Handle file upload logic here
     console.log(fileList);
+    message.success('Uploaded successfully');
+  };
+
+  const handleSubmit = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleModalOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleModalCancel = () => {
+    setIsModalVisible(false);
   };
 
   
@@ -38,6 +54,21 @@ const UploadPage = () => {
 
   return (
     <div>
+       {/* <Button onClick={handleSubmit} className={styles.submitButton}>
+        Submit form
+      </Button> */}
+
+      <Modal
+        title="Form Submitted"
+        visible={isModalVisible}
+        onOk={handleModalOk}
+        onCancel={handleModalCancel}
+      >
+        <p>Your form has been submitted successfully!</p>
+        <Link href="/DashBoard">
+          <Button className={styles.modalButton}>Go to Dashboard</Button>
+        </Link>
+      </Modal>
       <h1 className={styles.Heading}>Upload Documents</h1>
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         {documentTypesRow1.map((type, index) => (
@@ -76,7 +107,7 @@ const UploadPage = () => {
       {/* <Button  className={styles.u}>
         Submit form
       </Button> */}
-      <Button className={styles.submitButton}>Submit form</Button>
+      <Button onClick={handleSubmit} className={styles.submitButton}>Submit form</Button>
       <div className={styles.image}>
       <img src="/banner.png" alt="Banner box" />
     </div>

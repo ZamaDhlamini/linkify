@@ -112,11 +112,13 @@ const GrantForm = () => {
           </div>
           {isSaved && <p>Saved successfully</p>}
           <div className={styles.buttonContainer}>
+            <Link href='/UploadFiles'>
             {isSaveClicked && ( // Display the next page button if save button is clicked
               <Button htmlType="button" style={{ marginLeft: 8 }} className={styles.button2}>
                 Next Page
               </Button>
-            )}
+                )}
+                </Link>
           </div>
         </Form.Item>
       </Form>

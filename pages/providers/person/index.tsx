@@ -91,27 +91,36 @@ const getPersonByUserId= async (id:number) => {
 
   const login = async (payload: ILogin) => {
     try {
-      const response = await fetch('https://localhost:44311/api/TokenAuth/Authenticate', {
-        method: 'POST',
-        cache: 'no-cache',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-      });
+      const response = await fetch(
+        'https://localhost:44311/api/TokenAuth/Authenticate',
+        {
+          method: 'POST',
+          cache: 'no-cache',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        }
+      );
+  
       if (response.ok) {
         const data = await response.json();
         console.log('Token granted result:', data.result);
-      
-        // Store the token in local storage or any other secure storage method
+  
+        // Store the token in local storage
         localStorage.setItem('accessToken', data.result.accessToken);
-      
+  
         dispatch(LoginUserRequestAction(data.result));
-        await getPersonByUserId(data.result.userId)
+        await getPersonByUserId(data.result.userId);
+  
+        if (data.result.userId === 1) {
+          // Redirect to "/deshboard" for User ID 1
           window.location.href = '/DashBoard';
-      
-        
-      
+        } else {
+          // Redirect to "/homes" for other User IDs
+          window.location.href = '/';
+        }
+  
         // Display success message
         message.success('Login successful!');
       } else {
