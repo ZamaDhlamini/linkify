@@ -67,6 +67,7 @@ const TestDashBoard: React.FC = () => {
     { icon: CreditCardOutlined, label: 'Link Sassa Card', path: '/RegisterCard' },
     { icon: SettingOutlined, label: 'Manage Card', path: '/managecard' },
     { icon: CalendarOutlined, label: 'Book a Branch Visit', path: '/Booking' },
+    { icon: QuestionCircleOutlined, label: 'FAQ', path: '/KnowledgeBase' },
     { icon: LogoutOutlined, label: 'Logout', path: '/' },
   ];
 

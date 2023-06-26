@@ -1,13 +1,13 @@
 import { useRouter } from 'next/router';
 import styles from './KnowledgeCard.module.css';
-import Head from 'next/head'
-import Image from 'next/image'
+import Head from 'next/head';
+import Image from 'next/image';
 
 const Card = ({ description, name, slug }) => {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push(`/sections/${slug}`);
+    router.push('https://www.gov.za/sa-government-online-website-feedback');
   };
 
   return (
