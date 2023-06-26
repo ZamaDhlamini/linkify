@@ -36,8 +36,10 @@ const PaymentPage = (): JSX.Element => {
             <h5 className={styles.price}>R200</h5>
           </div>
         </div>
-        <Input placeholder="Meter Number" />
-        <Input placeholder="Amount" />
+        <Input placeholder="Meter Number"
+               className={styles.input1} />
+        <Input placeholder="Amount" 
+              className={styles.input2}/>
         <button className={styles.button} type="submit" role="link">
           Checkout
         </button>

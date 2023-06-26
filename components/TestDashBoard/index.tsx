@@ -61,13 +61,12 @@ const TestDashBoard: React.FC = () => {
   } = theme.useToken();
 
   const menuItems = [
-    { icon: HomeOutlined, label: 'Home', path: '/home' },
+    { icon: HomeOutlined, label: 'Home', path: '/DashBoard' },
     { icon: HomeOutlined, label: 'Apply for Grant', path: '/ApplyForm' },
     { icon: EnvironmentOutlined, label: 'Map', path: '/BranchMaps' },
     { icon: CreditCardOutlined, label: 'Link Sassa Card', path: '/RegisterCard' },
     { icon: SettingOutlined, label: 'Manage Card', path: '/managecard' },
     { icon: CalendarOutlined, label: 'Book a Branch Visit', path: '/Booking' },
-    { icon: QuestionCircleOutlined, label: 'FAQ', path: 'KnowlegdeBase' },
     { icon: LogoutOutlined, label: 'Logout', path: '/' },
   ];
 
@@ -108,11 +107,13 @@ const TestDashBoard: React.FC = () => {
                 <Col span={12}>
                   <Card title="SASSA Number" className={styles.customcard} style={{ marginBottom: 16 }}>
                     <Button>Get Sassa Number</Button>
+                    <p>69045</p>
                   </Card>
                 </Col>
                 <Col span={12}>
                   <Card title="SARS Number" className={styles.customcard} style={{ marginBottom: 16 }}>
                     <Button onClick={handleGetSarsNumber}>Get SARS Number</Button>
+                    <p>54909</p>
                     {sarsNumber && <p>{sarsNumber}</p>}
                   </Card>
                 </Col>
