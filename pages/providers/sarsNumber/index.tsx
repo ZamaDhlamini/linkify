@@ -14,15 +14,22 @@ const NumberProvider = ({ children }) => {
     });
   
     useEffect(() => {
-      if (data) {
-        dispatch(GetNumberRequestAction(data.result));
-        setNumberData(data.result); // Update grantData state with fetched data
-      }
-    }, [data]);
+        if (data) {
+          dispatch(GetNumberRequestAction(data.result));
+          setNumberData(data.result); // Update numberData state with fetched data
+        }
+      }, [data]);
+      
   
-    const getNumber = async () => {
-      getNumberHttp();
-    };
+      const getNumber = async () => {
+        if (data && data.result) {
+          return data.result;
+        } else {
+          throw new Error('Invalid API response');
+        }
+      };
+      
+      
   
   
     return (

@@ -84,29 +84,29 @@ const getPersonByUserId= async (id:number) => {
     }
   };
 
-  const getCard= (id:string) => {
-    console.log("card:",id)
-    axios.get(`https://localhost:44311/api/services/app/Card/Get?id`)
-    .then(res =>
-      {
-        try
-        {
-          console.log('data res',res.data);
-          if(res.data.success)
-          {
-            dispatch(GetCardRequestAction(id));
-            notification.success({
-                message: "Success",
-                description: "Task deleted successfully!",
-              })
-        }
-        }catch(error)
-        {
-          console.log('error message',error);
-          message.error('error message',error)
-        }
-      }).catch(err => console.log('catched  error',err))
-  };
+  // const getCard= (id:string) => {
+  //   console.log("card:",id)
+  //   axios.get(`https://localhost:44311/api/services/app/Card/Get?id`)
+  //   .then(res =>
+  //     {
+  //       try
+  //       {
+  //         console.log('data res',res.data);
+  //         if(res.data.success)
+  //         {
+  //           dispatch(GetCardRequestAction(id));
+  //           notification.success({
+  //               message: "Success",
+  //               description: "Task deleted successfully!",
+  //             })
+  //       }
+  //       }catch(error)
+  //       {
+  //         console.log('error message',error);
+  //         message.error('error message',error)
+  //       }
+  //     }).catch(err => console.log('catched  error',err))
+  // };
   
   
   
@@ -118,7 +118,7 @@ const getPersonByUserId= async (id:number) => {
   
     return(
         <CardContext.Provider value={state}>
-            <CardActionContext.Provider value={{createCard, getCard }}>
+            <CardActionContext.Provider value={{createCard}}>
                 {children}
             </CardActionContext.Provider>
         </CardContext.Provider>

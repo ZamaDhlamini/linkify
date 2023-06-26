@@ -2,8 +2,12 @@ import { useState } from 'react';
 import { Form, Input, Row, Col, Image, Button, message } from 'antd';
 import Link from 'next/link'; // Import the Link component
 import styles from './CardRegister.module.css';
+import { useCard } from '../../pages/providers/card';
+import { ICard } from '../../pages/providers/card/context';
+import router from 'next/router';
 
 const LinkCard = () => {
+  const {createCard} = useCard();
   const [cardData, setCardData] = useState({ name: '', cardNumber: '', month: '', year: '' });
   const [isCardSaved, setIsCardSaved] = useState(false); // State variable to track if the card is saved
 
@@ -15,6 +19,17 @@ const LinkCard = () => {
     setIsCardSaved(true); // Set the isCardSaved state to true
     message.success('Card saved successfully');
   };
+
+  const CreateSassaCard = async (values:ICard) =>{
+    console.log("Received values:", values);
+    if (createCard) {
+      createCard(values);
+      router.push('/Banking');
+    } else {
+      console.log("Failed to create Card");
+      alert("Failed to create Card");
+    }
+  }
 
   return (
     <div>

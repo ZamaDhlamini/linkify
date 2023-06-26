@@ -3,6 +3,7 @@ import { RestfulProvider } from "restful-react";
 import { UsersProvider } from "./providers/person";
 import { GrantProvider } from "./providers/grant";
 import { NumberProvider } from "./providers/sarsNumber";
+import { CardProvider } from "./providers/card";
 
 function MyApp({ Component, pageProps }: AppProps) {
     return(
@@ -10,7 +11,9 @@ function MyApp({ Component, pageProps }: AppProps) {
             <UsersProvider>
                 <GrantProvider>
                   <NumberProvider>
+                    <CardProvider>
           <Component {...pageProps}/>
+                    </CardProvider>
                   </NumberProvider>
                 </GrantProvider>
             </UsersProvider>
